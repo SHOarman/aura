@@ -1,0 +1,40 @@
+abstract class AppRoutes {
+  static const splash = '/splash';
+
+  static const joinuser  = '/joinuser';
+  static const login = '/login';
+  static const forgotpassword = '/forgotpassword';
+ static const singup = '/singup';
+ static const newpassword="/newpassword";
+
+  //====================Screen__ui========================================
+
+static const home = '/home';
+static const vsualisation = '/vsualisation';
+static const motivation = '/motivation';
+static const action = '/action';
+static const aicreate='/aicreate';
+static const musicPlayerScreen = '/musicPlayerScreen';
+
+
+//===============profile=============================
+
+static const profile = '/profile';
+static const subcription = '/subcription';
+
+
+
+
+//========================================Ai-create========================================
+static const startwithai = '/startwithai';
+static const writemyscript = '/writemyscript';
+
+
+
+
+
+
+
+
+
+}

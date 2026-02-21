@@ -1,0 +1,61 @@
+import 'package:aura/presentation/authscreen/login.dart';
+import 'package:aura/presentation/authscreen/newpassword.dart';
+import 'package:aura/presentation/authscreen/resetpassword.dart';
+import 'package:aura/presentation/authscreen/singup.dart';
+import 'package:aura/presentation/profile/profile.dart';
+import 'package:aura/presentation/screeen_ui/action/action.dart';
+import 'package:aura/presentation/screeen_ui/aicreate/aicreate.dart';
+import 'package:aura/presentation/screeen_ui/aicreate/startwithai.dart';
+import 'package:aura/presentation/screeen_ui/aicreate/writemyscript.dart';
+import 'package:aura/presentation/screeen_ui/home/home.dart';
+import 'package:aura/presentation/screeen_ui/motivation/motivation.dart';
+import 'package:aura/presentation/screeen_ui/vsualisation/vsualisation.dart';
+import 'package:get/get.dart';
+import '../../presentation/profile/subscription.dart';
+import '../../presentation/screeen_ui/musicPlayerScreen/musicPlayerScreen.dart';
+import '../../presentation/splash_screen/splash_screen.dart';
+import '../../presentation/authscreen/Joinuser .dart';
+import 'app_routes.dart';
+
+class AppPages {
+  static const initial = AppRoutes.home;
+
+  static final routes = [
+    GetPage(name: AppRoutes.splash, page: () => const SplashScreen()),
+    GetPage(name: AppRoutes.joinuser, page: () => const Joinuser ()),
+    GetPage(name: AppRoutes.singup, page: () => const Singup()),
+    GetPage(name: AppRoutes.login, page: () => const Login()),
+    GetPage(name: AppRoutes.forgotpassword, page: () => const Resetpassword ()),
+    GetPage(name: AppRoutes.newpassword, page: ()=>Newpassword()),
+
+
+
+
+    //====================Screen__ui========================================
+    GetPage(name: AppRoutes.home, page: () => const Home(),transition: Transition.noTransition),
+    GetPage(name: AppRoutes.vsualisation, page: () => const Vsualisation(),transition: Transition.noTransition),
+    GetPage(name: AppRoutes.motivation, page: () => const Motivation(),transition: Transition.noTransition),
+    GetPage(name: AppRoutes.action, page: () => const Action(),transition: Transition.noTransition),
+    GetPage(name: AppRoutes.aicreate, page: () =>  Aicreate(),transition: Transition.noTransition),
+
+    //==============profile================================
+GetPage(name: AppRoutes.profile, page: () => const Profile()),
+    GetPage(name: AppRoutes.subcription, page: () => const SubscriptionScreen()),
+
+
+
+    //========================================Ai-create========================================
+
+    GetPage(name: AppRoutes.startwithai, page: () => const Startwithai()),
+    GetPage(name: AppRoutes.writemyscript, page: () => const Writemyscript()),
+    GetPage(name: AppRoutes.musicPlayerScreen, page: () =>  MusicPlayerScreen()),
+
+
+
+
+
+
+
+
+  ];
+}
