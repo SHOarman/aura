@@ -1,3 +1,4 @@
+import 'package:aura/presentation/screeen_ui/motivation/widget/Custom%20Motivation%20Card%20Widget.dart';
 import 'package:aura/presentation/screeen_ui/screenwidgets/bottomnav_button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -10,7 +11,7 @@ class Motivation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.transparent, // Background dark color
+      backgroundColor: Colors.transparent,
       bottomNavigationBar: const CustomBottomNav(selectIndex: 3),
       body: SingleChildScrollView(
         child: Padding(
@@ -38,7 +39,9 @@ class Motivation extends StatelessWidget {
                     },
                     child: CircleAvatar(
                       radius: 25,
-                      backgroundImage: const AssetImage("assets/images/Ellipse 1.png"),
+                      backgroundImage: const AssetImage(
+                        "assets/images/Ellipse 1.png",
+                      ),
                       backgroundColor: Colors.grey[800],
                     ),
                   ),
@@ -94,12 +97,96 @@ class Motivation extends StatelessWidget {
               ),
               const SizedBox(height: 16),
 
+              // ========================= Vision Board Section =========================
+              Row(
+                children: [
+                  Expanded(
+                    flex: 4,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(6),
+                      child: Image.asset(
+                        "assets/images/Rectangle 8.png",
+                        height: 105,
 
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    flex: 7,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(6),
+                      child: Image.asset(
+                        "assets/images/Rectangle 9.png",
+                        height: 105,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
 
+              const SizedBox(height: 12),
+
+              Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(6),
+                      child: Image.asset(
+                        "assets/images/Rectangle 12.png",
+                        height: 105,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    flex: 6,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(6),
+                      child: Image.asset(
+                        "assets/images/Rectangle 10.png",
+                        height: 105,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    flex: 3,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(6),
+                      child: Image.asset(
+                        "assets/images/Rectangle 11.png",
+                        height: 105,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+
+              SizedBox(height: 40),
+              buildMotivationCard(
+                title: 'Achieve My Goals',
+                bgImage: 'assets/images/Rectangle 16.png',
+              ),
+              SizedBox(height: 8),
+              buildMotivationCard(
+                title: 'Confidence and Success',
+                bgImage: 'assets/images/Rectangle 16 (1).png',
+              ),
+              SizedBox(height: 8),
+              buildMotivationCard(
+                title: 'Motivated in 2 Minutes',
+                bgImage: 'assets/images/Rectangle 16 (2).png',
+              ),
             ],
           ),
         ),
-
       ),
     );
   }
