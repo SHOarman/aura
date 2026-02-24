@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../core/services/globelcontroller.dart';
 
-
 class SubscriptionScreen extends StatelessWidget {
   const SubscriptionScreen({super.key});
 
@@ -12,14 +11,18 @@ class SubscriptionScreen extends StatelessWidget {
     final controller = Get.put(Globelcontroller());
 
     return Scaffold(
-      backgroundColor: const Color(0xFF121418),
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
         title: const Text(
           "Upgrade to Aura Premium",
-          style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w600),
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 20),
@@ -77,11 +80,17 @@ class SubscriptionScreen extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
                   shadowColor: Colors.transparent,
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
                 ),
                 child: const Text(
                   "Continue",
-                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -91,7 +100,8 @@ class SubscriptionScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSelectableCard(Globelcontroller controller, {
+  Widget _buildSelectableCard(
+    Globelcontroller controller, {
     required int index,
     required String title,
     String? price,
@@ -107,7 +117,9 @@ class SubscriptionScreen extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             gradient: isSelected
-                ? const LinearGradient(colors: [Color(0xFF4C65E3), Color(0xFFD75BE3)])
+                ? const LinearGradient(
+                    colors: [Color(0xFF4C65E3), Color(0xFFD75BE3)],
+                  )
                 : null,
           ),
           child: SubscriptionCard(

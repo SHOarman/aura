@@ -23,6 +23,7 @@ class Writemyscript extends StatelessWidget {
       {"title": "Cosmos", "path": "assets/images/Rectangle 6 (3).png"},
     ];
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),

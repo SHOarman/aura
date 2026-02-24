@@ -45,7 +45,7 @@ class SubscriptionCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
                   decoration: BoxDecoration(
                     color: const Color(0xFF2D2F3F),
-                    borderRadius: BorderRadius.circular(33554400), // Figma radius
+                    borderRadius: BorderRadius.circular(33554400),
                   ),
                   child: ShaderMask(
                     shaderCallback: (bounds) => const LinearGradient(

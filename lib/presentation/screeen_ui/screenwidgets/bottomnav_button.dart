@@ -130,7 +130,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
     'assets/icon/Visualisationcolores.svg',
     '',
     'assets/icon/motivationcolors.svg',
-    'assets/icon/active propile.svg',
+    'assets/icon/iconamoon_profile-fill.svg',
   ];
 }
 

@@ -15,6 +15,7 @@ class Resetpassword extends StatelessWidget {
     TextEditingController codeCotroller = TextEditingController();
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

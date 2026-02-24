@@ -10,7 +10,7 @@ class Motivation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F1115), // Background dark color
+      backgroundColor: Colors.transparent, // Background dark color
       bottomNavigationBar: const CustomBottomNav(selectIndex: 3),
       body: SingleChildScrollView(
         child: Padding(
@@ -25,7 +25,7 @@ class Motivation extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    "Motivation", // Image onujayi 'Motivation' thakbe
+                    "Motivation",
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w600,

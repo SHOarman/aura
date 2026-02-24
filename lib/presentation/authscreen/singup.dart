@@ -15,6 +15,7 @@ class Singup extends StatelessWidget {
     TextEditingController passwordController = TextEditingController();
 
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),

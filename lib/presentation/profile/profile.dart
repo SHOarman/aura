@@ -17,7 +17,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff121418),
+      backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -59,7 +59,10 @@ class _ProfileState extends State<Profile> {
                   children: [
                     SvgPicture.asset(
                       "assets/icon/mingcute_notification-fill.svg",
-                      colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                      colorFilter: const ColorFilter.mode(
+                        Colors.white,
+                        BlendMode.srcIn,
+                      ),
                     ),
                     const SizedBox(width: 12),
                     const Expanded(
@@ -86,10 +89,15 @@ class _ProfileState extends State<Profile> {
                           borderRadius: BorderRadius.circular(15),
                           gradient: isNotificationOn
                               ? const LinearGradient(
-                            colors: [Color(0xFF4C65E3), Color(0xFFD75BE3)],
-                          )
+                                  colors: [
+                                    Color(0xFF4C65E3),
+                                    Color(0xFFD75BE3),
+                                  ],
+                                )
                               : null,
-                          color: isNotificationOn ? null : const Color(0xFF3E4146),
+                          color: isNotificationOn
+                              ? null
+                              : const Color(0xFF3E4146),
                         ),
                         child: AnimatedAlign(
                           duration: const Duration(milliseconds: 200),
@@ -149,7 +157,10 @@ class _ProfileState extends State<Profile> {
                   decoration: BoxDecoration(
                     color: const Color(0xff21242A),
                     borderRadius: BorderRadius.circular(99),
-                    border: Border.all(color: const Color(0xff47494E), width: 1),
+                    border: Border.all(
+                      color: const Color(0xff47494E),
+                      width: 1,
+                    ),
                   ),
                   child: Center(
                     child: Row(

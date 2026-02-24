@@ -18,7 +18,7 @@ import '../../presentation/authscreen/Joinuser .dart';
 import 'app_routes.dart';
 
 class AppPages {
-  static const initial = AppRoutes.home;
+  static const initial = AppRoutes.splash;
 
   static final routes = [
     GetPage(name: AppRoutes.splash, page: () => const SplashScreen()),
