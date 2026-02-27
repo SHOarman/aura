@@ -62,7 +62,10 @@ class Onlodingscreen3 extends StatelessWidget {
 
               Custombutton(
                 text: "Continue",
-                ontap: () {},
+                ontap: () {
+
+                  //=========================================================
+                },
                 gradient: LinearGradient(
                   colors: [Color(0xFF4A6CF7), Color(0xFFC159E1)],
                 ),

@@ -46,7 +46,7 @@ class Onlodingscreen extends StatelessWidget {
                     return AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
                       margin: const EdgeInsets.symmetric(horizontal: 4),
-                      height: 8,
+                      height: 7,
                       width: isActive ? 24 : 8,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(8),
