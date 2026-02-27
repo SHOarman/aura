@@ -14,22 +14,19 @@ class Onlodingscreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   final Globelcontroller controller = Get.put(Globelcontroller());
-
+    final Globelcontroller controller = Get.put(Globelcontroller());
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.transparent,
       body: Stack(
         children: [
           PageView(
             controller: controller.pageController,
             onPageChanged: controller.onPageChanged,
-            // physics: const NeverScrollableScrollPhysics(),
             children: [
               _buildFirstPage(),
               Onlodaingscreen2(),
               Onlodingscreen3(),
-
             ],
           ),
 
@@ -39,27 +36,32 @@ class Onlodingscreen extends StatelessWidget {
             right: 20,
             child: Column(
               children: [
-                Obx(() => Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: List.generate(3, (index) {
-                    bool isActive = controller.currentPage.value == index;
-                    return AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      margin: const EdgeInsets.symmetric(horizontal: 4),
-                      height: 7,
-                      width: isActive ? 24 : 8,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        gradient: isActive
-                            ? const LinearGradient(
-                          colors: [Color(0xFF4A6CF7), Color(0xFFC159E1)],
-                        )
-                            : null,
-                        color: isActive ? null : Colors.white,
-                      ),
-                    );
-                  }),
-                )),
+                Obx(
+                  () => Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(3, (index) {
+                      bool isActive = controller.currentPage.value == index;
+                      return AnimatedContainer(
+                        duration: const Duration(milliseconds: 300),
+                        margin: const EdgeInsets.symmetric(horizontal: 4),
+                        height: 7,
+                        width: isActive ? 24 : 8,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          gradient: isActive
+                              ? const LinearGradient(
+                                  colors: [
+                                    Color(0xFF4A6CF7),
+                                    Color(0xFFC159E1),
+                                  ],
+                                )
+                              : null,
+                          color: isActive ? null : Colors.white,
+                        ),
+                      );
+                    }),
+                  ),
+                ),
 
                 const SizedBox(height: 40),
 
@@ -85,7 +87,7 @@ class Onlodingscreen extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(height: 180,),
+          SizedBox(height: 180),
           Text(
             "Before every defining moment,\nthere is preparation.",
             textAlign: TextAlign.center,
@@ -108,8 +110,4 @@ class Onlodingscreen extends StatelessWidget {
       ),
     );
   }
-
-
-
-
 }

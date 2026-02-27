@@ -29,13 +29,12 @@ class _SplashScreenState extends State<SplashScreen> {
         decoration: const BoxDecoration(),
         child: Center(
           child: Column(
-            crossAxisAlignment:.center,
-            mainAxisAlignment:.center,
+            crossAxisAlignment: .center,
+            mainAxisAlignment: .center,
             children: [
-              Image.asset("assets/images/image 15.png",height: 52,width: 144,)
+              Image.asset("assets/images/image 15.png", height: 52, width: 144),
             ],
           ),
-         
         ),
       ),
     );

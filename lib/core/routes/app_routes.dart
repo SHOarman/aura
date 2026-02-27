@@ -6,6 +6,7 @@ abstract class AppRoutes {
   static const onlodingscreen = '/onlodingscreen';
   static const onlodaingscreen2 = '/onlodaingscreen2';
   static const onlodaingscreen3 = '/onlodaingscreen3';
+  static const onlodaingscreen4 = '/onlodaingscreen4';
 
 
 

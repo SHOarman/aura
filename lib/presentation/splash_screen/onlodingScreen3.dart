@@ -1,6 +1,8 @@
+import 'package:aura/core/routes/app_routes.dart';
 import 'package:aura/globelwidgets/custombutton.dart';
 import 'package:aura/presentation/splash_screen/widgets/onlodingcard.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Onlodingscreen3 extends StatelessWidget {
   const Onlodingscreen3({super.key});
@@ -47,9 +49,7 @@ class Onlodingscreen3 extends StatelessWidget {
               Onlodingcard(
                 title: "Competitive Exams",
                 subtitle: "Maintain focus when it matters most.",
-                onTap: () {
-
-                },
+                onTap: () {},
               ),
               SizedBox(height: 8),
               Onlodingcard(
@@ -60,16 +60,18 @@ class Onlodingscreen3 extends StatelessWidget {
 
               SizedBox(height: 200),
 
-              Custombutton(
-                text: "Continue",
-                ontap: () {
-
-                  //=========================================================
-                },
-                gradient: LinearGradient(
-                  colors: [Color(0xFF4A6CF7), Color(0xFFC159E1)],
-                ),
-              ),
+              // Custombutton(
+              //   text: "Continue",
+              //   ontap: () {
+              //
+              //     Get.toNamed(AppRoutes.onlodaingscreen4);
+              //
+              //     //=========================================================
+              //   },
+              //   gradient: LinearGradient(
+              //     colors: [Color(0xFF4A6CF7), Color(0xFFC159E1)],
+              //   ),
+              // ),
             ],
           ),
         ),

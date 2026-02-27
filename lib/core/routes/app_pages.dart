@@ -13,6 +13,7 @@ import 'package:aura/presentation/screeen_ui/vsualisation/vsualisation.dart';
 import 'package:get/get.dart';
 import '../../presentation/profile/subscription.dart';
 import '../../presentation/screeen_ui/musicPlayerScreen/musicPlayerScreen.dart';
+import '../../presentation/splash_screen/onlodaingScreen4.dart';
 import '../../presentation/splash_screen/onlodaingscreen2.dart';
 import '../../presentation/splash_screen/onlodingScreen.dart';
 import '../../presentation/splash_screen/onlodingScreen3.dart';
@@ -28,6 +29,9 @@ class AppPages {
     GetPage(name: AppRoutes.onlodingscreen, page: () => const Onlodingscreen()),
     GetPage(name: AppRoutes.onlodaingscreen2, page: () => const Onlodaingscreen2()),
     GetPage(name: AppRoutes.onlodaingscreen3, page: () => const Onlodingscreen3()),
+    GetPage(name: AppRoutes.onlodaingscreen4, page: () => const Onlodaingscreen4()),
+
+
 
 
 

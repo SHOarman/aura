@@ -61,15 +61,15 @@ class Onlodaingscreen2 extends StatelessWidget {
               ),
 
               SizedBox(height: 300),
-              Custombutton(
-                text: "Continue",
-                ontap: () {
-                  Get.toNamed(AppRoutes.onlodaingscreen3);
-                },
-                gradient: LinearGradient(
-                  colors: [Color(0xFF4A6CF7), Color(0xFFC159E1)],
-                ),
-              ),
+              // Custombutton(
+              //   text: "Continue",
+              //   ontap: () {
+              //     Get.toNamed(AppRoutes.onlodaingscreen3);
+              //   },
+              //   gradient: LinearGradient(
+              //     colors: [Color(0xFF4A6CF7), Color(0xFFC159E1)],
+              //   ),
+              // ),
               const SizedBox(height: 30),
             ],
           ),

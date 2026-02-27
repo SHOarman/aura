@@ -57,6 +57,8 @@ class Globelcontroller extends GetxController {
       );
     } else {
 
+      Get.toNamed(AppRoutes.onlodaingscreen4);
+
     }
   }
 
