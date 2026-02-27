@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+
+import '../routes/app_routes.dart';
 
 class Globelcontroller extends GetxController {
   //===================== selectimage ==============================
@@ -38,4 +41,23 @@ class Globelcontroller extends GetxController {
   void toggleNotification() {
     isNotificationOn.value = !isNotificationOn.value;
   }
+
+
+  //=================SmothpageIndicator Slider==============================
+  var currentPage = 0.obs;
+  final PageController pageController = PageController();
+  void onPageChanged(int index) {
+    currentPage.value = index;
+  }
+  void goToNextPage() {
+    if (currentPage.value < 2) {
+      pageController.nextPage(
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+      );
+    } else {
+
+    }
+  }
+
 }

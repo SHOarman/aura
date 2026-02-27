@@ -85,7 +85,7 @@ class MyApp extends StatelessWidget {
               height: double.infinity,
               decoration: const BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/image 12.png"),
+                  image: AssetImage("assets/images/Property 1=background2.png"),
                   fit: BoxFit.cover,
                 ),
 

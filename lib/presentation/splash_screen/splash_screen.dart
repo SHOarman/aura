@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 3), () {
-      Get.offNamed(AppRoutes.joinuser);
+      Get.offNamed(AppRoutes.onlodingscreen);
     });
   }
 
@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
             crossAxisAlignment:.center,
             mainAxisAlignment:.center,
             children: [
-              Image.asset("assets/images/image 4.png",height: 52,width: 144,)
+              Image.asset("assets/images/image 15.png",height: 52,width: 144,)
             ],
           ),
          

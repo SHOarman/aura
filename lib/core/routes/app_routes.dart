@@ -1,5 +1,15 @@
 abstract class AppRoutes {
+
+
+  //==========================================Splash Screen
   static const splash = '/splash';
+  static const onlodingscreen = '/onlodingscreen';
+  static const onlodaingscreen2 = '/onlodaingscreen2';
+  static const onlodaingscreen3 = '/onlodaingscreen3';
+
+
+
+
 
   static const joinuser  = '/joinuser';
   static const login = '/login';
