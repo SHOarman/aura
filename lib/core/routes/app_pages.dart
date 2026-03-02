@@ -13,10 +13,13 @@ import 'package:aura/presentation/screeen_ui/vsualisation/vsualisation.dart';
 import 'package:get/get.dart';
 import '../../presentation/profile/subscription.dart';
 import '../../presentation/screeen_ui/musicPlayerScreen/musicPlayerScreen.dart';
+import '../../presentation/splash_screen/PrePerformanceFocusdetelsscreen.dart';
 import '../../presentation/splash_screen/onlodaingScreen4.dart';
+import '../../presentation/splash_screen/onlodaingScreen5.dart';
 import '../../presentation/splash_screen/onlodaingscreen2.dart';
 import '../../presentation/splash_screen/onlodingScreen.dart';
 import '../../presentation/splash_screen/onlodingScreen3.dart';
+import '../../presentation/splash_screen/onlodingScreen6.dart';
 import '../../presentation/splash_screen/splash_screen.dart';
 import '../../presentation/authscreen/Joinuser .dart';
 import 'app_routes.dart';
@@ -30,6 +33,11 @@ class AppPages {
     GetPage(name: AppRoutes.onlodaingscreen2, page: () => const Onlodaingscreen2()),
     GetPage(name: AppRoutes.onlodaingscreen3, page: () => const Onlodingscreen3()),
     GetPage(name: AppRoutes.onlodaingscreen4, page: () => const Onlodaingscreen4()),
+    GetPage(name: AppRoutes.onlodaingscreen5, page: () => const Onlodaingscreen5()),
+    GetPage(name: AppRoutes.onlodaingscreen6, page: () => const Onlodingscreen6()),
+    GetPage(name: AppRoutes.preperformancefocusdetelsscreen, page: () =>  Preperformancefocusdetelsscreen()),
+
+
 
 
 

@@ -167,7 +167,7 @@ class MusicPlayerScreen extends StatelessWidget {
 
             const Spacer(),
 
-            // Player Controls
+
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

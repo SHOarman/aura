@@ -64,7 +64,11 @@ class Home extends StatelessWidget {
                   itemCount: 3,
                   itemBuilder: (context, index) {
                     return Recommended(
-                      imagepagth: 'assets/images/Rectangle 4.png', title: 'Forest Serenity', ontap: () {Get.toNamed(AppRoutes.musicPlayerScreen);  },
+                      imagepagth: 'assets/images/Rectangle 4.png',
+                      title: 'Forest Serenity',
+                      ontap: () {
+                        Get.toNamed(AppRoutes.musicPlayerScreen);
+                      },
                     );
                   },
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

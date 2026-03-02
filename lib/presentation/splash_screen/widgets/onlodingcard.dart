@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class Onlodingcard extends StatelessWidget {
   final String title;
@@ -19,31 +18,33 @@ class Onlodingcard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         height: 80,
-        width: 335,
-
+        width: double.infinity,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.transparent),
+          borderRadius: BorderRadius.circular(12),
           gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xFF4A6CF7),
-              Color(0xFFC159E1),
+                Color(0x26574074),
+              Color(0x4D1B1424),
             ],
+          ),
+          border: Border.all(
+            color: Colors.white.withOpacity(0.2),
+            width: 1,
           ),
         ),
         child: Container(
-          margin: const EdgeInsets.all(0.1),
-          padding: const EdgeInsets.symmetric( horizontal: 15),
+          margin: const EdgeInsets.all(1.0),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           decoration: BoxDecoration(
-            color: const Color(0xFF0D0B21),
-            borderRadius: BorderRadius.circular(8),
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(11),
           ),
+
           child: Column(
-            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 10),
               Text(
                 title,
                 textAlign: TextAlign.center,
@@ -59,7 +60,7 @@ class Onlodingcard extends StatelessWidget {
                 subtitle,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.white.withAlpha(200),
+                  color: Colors.white.withOpacity(0.7),
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                 ),

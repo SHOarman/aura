@@ -30,14 +30,15 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> titles = ["Home", "Visualisation", "", "Motivation", "Action"];
+    List<String> titles = ["Home", "Library", "", "Progress", "Profile"];
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
       padding: const EdgeInsets.symmetric(horizontal: 8),
       height: 85,
       decoration: BoxDecoration(
-        color: const Color(0xFF333333).withOpacity(0.9),
+       color: Colors.transparent,
+      //  color: const Color(0xFF333333).withOpacity(0.9),
         borderRadius: BorderRadius.circular(40),
         border: Border.all(color: Colors.white.withOpacity(0.1)),
       ),
@@ -70,11 +71,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
                     shaderCallback: (bounds) => const LinearGradient(
                       colors: [Color(0xFF4C65E3), Color(0xFFD75BE3)],
                     ).createShader(bounds),
-                    child: const Icon(
-                      Icons.add,
-                      color: Colors.white,
-                      size: 28,
-                    ),
+                    child: const Icon(Icons.add, color: Colors.white, size: 28),
                   ),
                 ),
               ),
@@ -95,7 +92,9 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
                   style: TextStyle(
                     color: isSelected ? Colors.transparent : Colors.white,
                     fontSize: 12,
-                    fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                    fontWeight: isSelected
+                        ? FontWeight.bold
+                        : FontWeight.normal,
                   ),
                 ).buildWithGradient(isSelected),
               ],
@@ -119,17 +118,17 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
 
   final List<String> _inactiveIcons = [
     'assets/icon/whitehome.svg',
-    'assets/icon/Visualisation.svg',
+    'assets/icon/inactive.svg',
     '', // Middle button
-    'assets/icon/motivation.svg',
+    'assets/icon/inaciveprogress.svg',
     'assets/icon/actionwhite.svg',
   ];
 
   final List<String> _activeIcons = [
     'assets/icon/colorshome.svg',
-    'assets/icon/Visualisationcolores.svg',
+    'assets/icon/activelevary.svg',
     '',
-    'assets/icon/motivationcolors.svg',
+    'assets/icon/activeprogress.svg',
     'assets/icon/iconamoon_profile-fill.svg',
   ];
 }

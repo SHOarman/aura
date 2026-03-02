@@ -1,5 +1,8 @@
+import 'package:aura/core/routes/app_routes.dart';
 import 'package:aura/globelwidgets/custombutton.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../unity/appcolors/appcolors.dart';
 
@@ -57,7 +60,9 @@ class Onlodaingscreen4 extends StatelessWidget {
 
               Custombutton(
                 text: "Begin Training",
-                ontap: () {},
+                ontap: () {
+                  Get.toNamed(AppRoutes.onlodaingscreen5);
+                },
                 gradient: LinearGradient(
                   colors: [Color(0xFF4A6CF7), Color(0xFFC159E1)],
                 ),
@@ -72,6 +77,12 @@ class Onlodaingscreen4 extends StatelessWidget {
                     children: [
                       TextSpan(
                         text: "Sing in",
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            print("Sing in");
+
+                            Get.toNamed(AppRoutes.login);
+                          },
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
@@ -93,6 +104,11 @@ class Onlodaingscreen4 extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            print("createa acound");
+                            Get.toNamed(AppRoutes.joinuser);
+                          },
                         text: "Creatae  account",
                         style: TextStyle(
                           fontSize: 16,

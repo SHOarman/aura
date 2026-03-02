@@ -62,4 +62,21 @@ class Globelcontroller extends GetxController {
     }
   }
 
+  //====================quickmentalsessionscard==================
+
+  var selectedSession = "".obs;
+
+  void selectSession(String name) {
+    selectedSession.value = name;
+  }
+
+  //======================onlodaing6data favoriteicon=====================
+  var isFavorite = false.obs;
+
+  void toggleFavorite() {
+    isFavorite.value = !isFavorite.value;
+  }
+
+
+
 }

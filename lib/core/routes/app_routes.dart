@@ -7,6 +7,10 @@ abstract class AppRoutes {
   static const onlodaingscreen2 = '/onlodaingscreen2';
   static const onlodaingscreen3 = '/onlodaingscreen3';
   static const onlodaingscreen4 = '/onlodaingscreen4';
+  static const onlodaingscreen5 = '/onlodaingscreen5';
+  static const onlodaingscreen6 = '/onlodaingscreen6';
+  static const onlodaingscreen7 = '/onlodaingscreen7';
+  static const preperformancefocusdetelsscreen = '/preperformancefocusdetelsscreen';
 
 
 
