@@ -25,7 +25,8 @@ abstract class AppRoutes {
   //====================Screen__ui========================================
 
 static const home = '/home';
-static const vsualisation = '/vsualisation';
+static const seealldata='/seealldata';
+static const vsualisation = '/library';
 static const motivation = '/motivation';
 static const action = '/action';
 static const aicreate='/aicreate';

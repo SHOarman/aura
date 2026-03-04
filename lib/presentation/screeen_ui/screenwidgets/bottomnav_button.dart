@@ -37,8 +37,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
       padding: const EdgeInsets.symmetric(horizontal: 8),
       height: 85,
       decoration: BoxDecoration(
-       color: Colors.transparent,
-      //  color: const Color(0xFF333333).withOpacity(0.9),
+        color: const Color(0xFF1A1124).withOpacity(0.9),
         borderRadius: BorderRadius.circular(40),
         border: Border.all(color: Colors.white.withOpacity(0.1)),
       ),
@@ -51,7 +50,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
             return GestureDetector(
               onTap: () => _navigateToScreen(2),
               child: Container(
-                padding: const EdgeInsets.all(6),
+                padding: const EdgeInsets.all(3),
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   gradient: LinearGradient(
@@ -61,17 +60,22 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
                   ),
                 ),
                 child: Container(
-                  height: 48,
-                  width: 48,
+                  height: 52,
+                  width: 52,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.white,
+                    // color: Color(0xFF0D0219),
                   ),
-                  child: ShaderMask(
-                    shaderCallback: (bounds) => const LinearGradient(
-                      colors: [Color(0xFF4C65E3), Color(0xFFD75BE3)],
-                    ).createShader(bounds),
-                    child: const Icon(Icons.add, color: Colors.white, size: 28),
+                  child: Center(
+                    child: SvgPicture.asset(
+                      "assets/icon/pluse.svg",
+                      height: 26,
+                      width: 26,
+                      colorFilter: const ColorFilter.mode(
+                        Colors.white,
+                        BlendMode.srcIn,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -109,7 +113,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
     String iconPath = isSelected ? _activeIcons[index] : _inactiveIcons[index];
     return SvgPicture.asset(
       iconPath,
-      height: 26,
+      height: 24,
       colorFilter: isSelected
           ? null
           : const ColorFilter.mode(Colors.white, BlendMode.srcIn),
@@ -119,7 +123,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
   final List<String> _inactiveIcons = [
     'assets/icon/whitehome.svg',
     'assets/icon/inactive.svg',
-    '', // Middle button
+    '',
     'assets/icon/inaciveprogress.svg',
     'assets/icon/actionwhite.svg',
   ];

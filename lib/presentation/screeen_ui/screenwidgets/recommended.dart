@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Recommended extends StatefulWidget {
   final String title;
@@ -28,107 +27,88 @@ class _RecommendedState extends State<Recommended> {
     return GestureDetector(
       onTap: widget.ontap,
       child: Container(
-        width: 170,
-        margin: const EdgeInsets.only(right: 12),
+
+        width:250,
+        height: 244,
+        margin: const EdgeInsets.only(right: 6),
         decoration: BoxDecoration(
-          color: const Color(0xFF1E2126),
-          borderRadius: BorderRadius.circular(10),
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Image Section
             ClipRRect(
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
+              borderRadius: BorderRadius.circular(16),
               child: Image.asset(
                 widget.imagepagth,
-                height: 100,
-                width: 170,
+                height: 120,
+               width: 240,
                 fit: BoxFit.cover,
-                errorBuilder: (context, error, stackTrace) {
-                  return Container(
-                    height: 100,
-                    width: 170,
-                    color: Colors.grey[800],
-                    child: const Icon(Icons.broken_image, color: Colors.white54),
-                  );
-                },
+                errorBuilder: (context, error, stackTrace) => Container(
+                  height: 155,
+                  color: Colors.white10,
+                  child: const Icon(Icons.broken_image, color: Colors.white54),
+                ),
               ),
             ),
 
             const SizedBox(height: 12),
 
-            // Title & Favorite Icon
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Expanded(
-                    child: Text(
-                      widget.title,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        isFavorite = !isFavorite;
-                      });
-                    },
-                    child: isFavorite
-                        ? ShaderMask(
-                      shaderCallback: (bounds) => const LinearGradient(
-                        colors: gradientColors,
-                      ).createShader(bounds),
-                      child: const Icon(
-                        Icons.favorite,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                    )
-                        : const Icon(
-                      Icons.favorite,
-                      color: unselectedColor,
-                      size: 20,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 8),
-
-            // Time/Duration Section
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-              child: Row(
-                children: [
-                  SvgPicture.asset(
-                    "assets/icon/time.svg",
-                    height: 14,
-                    colorFilter: const ColorFilter.mode(
-                      Color(0xFFD75BE3),
-                      BlendMode.srcIn,
-                    ),
-                  ),
-                  const SizedBox(width: 5),
-                  const Text(
-                    "28.5 min",
-                    style: TextStyle(
+            Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    widget.title,
+                    style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      color: Color(0xFF8E8F92),
+                      color:Color(0xffD9DADB),
                     ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                ],
+                ),
+                GestureDetector(
+                  onTap: () => setState(() => isFavorite = !isFavorite),
+                  child: isFavorite
+                      ? ShaderMask(
+                    shaderCallback: (bounds) => const LinearGradient(
+                      colors: gradientColors,
+                    ).createShader(bounds),
+                    child: const Icon(Icons.favorite, color: Colors.white, size: 22),
+                  )
+                      : const Icon(Icons.favorite, color: unselectedColor, size: 22),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 4),
+
+            Row(
+              children: [
+
+                const Text(
+                  "Pre-Performance Focus",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Color(0xFFFCFDFD),
+                    fontWeight: FontWeight.w500
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 4),
+
+            const Text(
+              "Prepare your mind before important\n moments.",
+              style: TextStyle(
+                fontSize: 11,
+                color: Color(0xFF8E8F92),
+                fontWeight: FontWeight.w400,
               ),
             ),
           ],
@@ -139,3 +119,125 @@ class _RecommendedState extends State<Recommended> {
 }
 
 
+
+//===================================================================================================================
+
+
+
+class liberycard extends StatefulWidget {
+  final String title;
+  final String imagepagth;
+  final VoidCallback ontap;
+
+  const liberycard({
+    super.key,
+    required this.imagepagth,
+    required this.title,
+    required this.ontap,
+  });
+
+  @override
+  State<liberycard> createState() => _liberycard();
+}
+
+class _liberycard extends State<liberycard> {
+  bool isFavorite = false;
+
+  @override
+  Widget build(BuildContext context) {
+    const Color unselectedColor = Color(0xFF8E8F92);
+    const List<Color> gradientColors = [Color(0xFFD75BE3), Color(0xFF4C65E3)];
+
+    return GestureDetector(
+      onTap: widget.ontap,
+      child: Container(
+
+        width:250,
+        height: 244,
+        margin: const EdgeInsets.only(right: 6),
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.asset(
+                widget.imagepagth,
+                height: 120,
+                width: 240,
+                fit: BoxFit.cover,
+                errorBuilder: (context, error, stackTrace) => Container(
+                  height: 155,
+                  color: Colors.white10,
+                  child: const Icon(Icons.broken_image, color: Colors.white54),
+                ),
+              ),
+            ),
+
+            const SizedBox(height: 12),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: Text(
+                    widget.title,
+                    style: const TextStyle(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w400,
+                      color:Color(0xffD9DADB),
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => setState(() => isFavorite = !isFavorite),
+                  child: isFavorite
+                      ? ShaderMask(
+                    shaderCallback: (bounds) => const LinearGradient(
+                      colors: gradientColors,
+                    ).createShader(bounds),
+                    child: const Icon(Icons.favorite, color: Colors.white, size: 16),
+                  )
+                      : const Icon(Icons.favorite, color: unselectedColor, size: 16),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 2),
+
+            Row(
+              children: [
+
+                const Text(
+                  "Pre-Performance Focus",
+                  style: TextStyle(
+                      fontSize: 12,
+                      color: Color(0xFFFCFDFD),
+                      fontWeight: FontWeight.w500
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 4),
+
+            const Text(
+              "Prepare your mind before important\n moments.",
+              style: TextStyle(
+                fontSize: 9,
+                color: Color(0xFF8E8F92),
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
