@@ -1,10 +1,14 @@
 import 'package:aura/core/routes/app_routes.dart';
-import 'package:aura/presentation/profile/profilewidget/profilewidget.dart';
+import 'package:aura/presentation/screeen_ui/action/profile/profilewidget/profilewidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+import '../../screenwidgets/bottomnav_button.dart';
+
 class Profile extends StatefulWidget {
+
+
   const Profile({super.key});
 
   @override
@@ -17,6 +21,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar:CustomBottomNav(selectIndex: 4),
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: Colors.transparent,

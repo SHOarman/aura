@@ -1,7 +1,7 @@
-import 'package:aura/presentation/profile/profilewidget/subscriptionCard.dart';
+import 'package:aura/presentation/screeen_ui/action/profile/profilewidget/subscriptionCard.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../core/services/globelcontroller.dart';
+import '../../../../core/services/globelcontroller.dart';
 
 class SubscriptionScreen extends StatelessWidget {
   const SubscriptionScreen({super.key});
