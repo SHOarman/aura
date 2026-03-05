@@ -44,6 +44,7 @@ static const subcription = '/subcription';
 //========================================Ai-create========================================
 static const startwithai = '/startwithai';
 static const writemyscript = '/writemyscript';
+static const createScriptScreen="/createScriptScreen";
 
 
 

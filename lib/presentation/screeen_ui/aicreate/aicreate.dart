@@ -10,7 +10,6 @@ class Aicreate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       bottomNavigationBar: CustomBottomNav(selectIndex: 2),
       body: SingleChildScrollView(
@@ -20,68 +19,49 @@ class Aicreate extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 60),
-
-              Row(
-                mainAxisAlignment: .spaceBetween,
-                children: [
-                  Text(
-                    "Create a Visualization",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xffF0F0F0),
-                    ),
+              Center(
+                child: Text(
+                  "Creation audio",
+                  style: TextStyle(
+                    color: Color(0xffFCFDFD),
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
                   ),
-
-                  GestureDetector(
-                    onTap: () {
-                      Get.toNamed(AppRoutes.profile);
-                    },
-                    child: Image.asset(
-                      "assets/images/Ellipse 1.png",
-                      height: 50,
-                      width: 50,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 40),
-
-              Text(
-                'Create a personalized mental experience\n to achieve your goals',
-                style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 16,
-                  color: Color(0xffF0F0F0),
                 ),
               ),
-              SizedBox(height: 32),
+              SizedBox(height: 24),
 
               VisualizationCard(
-                boldtext: "Let AI create my visualization",
-                text:
-                    "Describe your goal and the AI generates immersive mental coaching with images and audio",
+                boldText: 'Let AI create my visualization',
+                descriptionText:
+                    'Describe your goal and the AI generates immersive mental coaching with audio',
+                buttonLabel: 'Guide by Aura',
                 onTap: () {
-                  Get.toNamed(AppRoutes.startwithai);
 
-
+                  Get.toNamed(AppRoutes.createScriptScreen);
                 },
-                iconename: "Start with AI",
               ),
 
-              SizedBox(height: 12,),
+              SizedBox(height: 12),
+
 
               VisualizationCard(
-                boldtext: "Write my own visualization",
-                text:
-                "Write your text and the AI transforms it into audio",
+                boldText: 'Write my own visualization',
+                descriptionText:
+                'Write your text and AI transforms it into audio',
+                buttonLabel: 'Write your own Script',
                 onTap: () {
-
-                  Get.toNamed(AppRoutes.writemyscript);
                 },
-                iconename: "Write my script",
               ),
 
+              // VisualizationCard(
+              //   boldtext: "Write my own visualization",
+              //   text: "Write your text and the AI transforms it into audio",
+              //   onTap: () {
+              //     Get.toNamed(AppRoutes.writemyscript);
+              //   },
+              //   iconename: "Write my script",
+              // ),
             ],
           ),
         ),

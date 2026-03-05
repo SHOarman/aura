@@ -4,6 +4,7 @@ import 'package:aura/presentation/authscreen/resetpassword.dart';
 import 'package:aura/presentation/authscreen/singup.dart';
 import 'package:aura/presentation/profile/profile.dart';
 import 'package:aura/presentation/screeen_ui/action/action.dart';
+import 'package:aura/presentation/screeen_ui/aicreate/CreateScriptScreen.dart';
 import 'package:aura/presentation/screeen_ui/aicreate/aicreate.dart';
 import 'package:aura/presentation/screeen_ui/aicreate/startwithai.dart';
 import 'package:aura/presentation/screeen_ui/aicreate/writemyscript.dart';
@@ -26,7 +27,7 @@ import '../../presentation/authscreen/Joinuser .dart';
 import 'app_routes.dart';
 
 class AppPages {
-  static const initial = AppRoutes.home;
+  static const initial = AppRoutes.splash;
 
   static final routes = [
     GetPage(name: AppRoutes.splash, page: () => const SplashScreen()),
@@ -72,6 +73,7 @@ GetPage(name: AppRoutes.profile, page: () => const Profile()),
     GetPage(name: AppRoutes.startwithai, page: () => const Startwithai()),
     GetPage(name: AppRoutes.writemyscript, page: () => const Writemyscript()),
     GetPage(name: AppRoutes.musicPlayerScreen, page: () =>  MusicPlayerScreen()),
+    GetPage(name: AppRoutes.createScriptScreen, page:()=>CreateScriptScreen()),
 
 
 
