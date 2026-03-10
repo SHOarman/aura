@@ -44,7 +44,7 @@ class SubscriptionCard extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 9),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF2D2F3F),
+                  color: Colors.transparent,
                     borderRadius: BorderRadius.circular(33554400),
                   ),
                   child: ShaderMask(

@@ -16,32 +16,20 @@ class Onlodingcard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        height: 80,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
+      child: CustomPaint(
+        painter: GradientPainter(
+          strokeWidth: 1.5,
+          radius: 12,
           gradient: const LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-                Color(0x26574074),
-              Color(0x4D1B1424),
-            ],
-          ),
-          border: Border.all(
-            color: Colors.white.withOpacity(0.2),
-            width: 1,
+            colors: [Color(0xFFD75BE3), Color(0xFF4C65E3)],
           ),
         ),
         child: Container(
-          margin: const EdgeInsets.all(1.0),
+          height: 80,
+          width: double.infinity,
+          alignment: Alignment.center,
           padding: const EdgeInsets.symmetric(horizontal: 15),
-          decoration: BoxDecoration(
-            color: Colors.transparent,
-            borderRadius: BorderRadius.circular(11),
-          ),
-
+          color: Colors.transparent, // Ekhane background transparent thakbe
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -71,4 +59,32 @@ class Onlodingcard extends StatelessWidget {
       ),
     );
   }
+}
+
+// Border Paint korar jonno eiti lagbe
+class GradientPainter extends CustomPainter {
+  final double strokeWidth;
+  final double radius;
+  final Gradient gradient;
+
+  GradientPainter({
+    required this.strokeWidth,
+    required this.radius,
+    required this.gradient,
+  });
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final Rect rect = Offset.zero & size;
+    final Paint paint = Paint()
+      ..strokeWidth = strokeWidth
+      ..style = PaintingStyle.stroke
+      ..shader = gradient.createShader(rect);
+
+    final RRect rrect = RRect.fromRectAndRadius(rect, Radius.circular(radius));
+    canvas.drawRRect(rrect, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }

@@ -1,5 +1,5 @@
 import 'package:aura/core/routes/app_routes.dart';
-import 'package:aura/presentation/screeen_ui/action/profile/profilewidget/profilewidget.dart';
+import 'package:aura/presentation/screeen_ui/profile/profile/profilewidget/profilewidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -23,7 +23,7 @@ class Action extends StatelessWidget {
 
         automaticallyImplyLeading: false,
         title: const Text(
-          "Settings",
+          "Profile",
           style: TextStyle(
             color: Color(0xffF0F0F0),
             fontSize: 22,

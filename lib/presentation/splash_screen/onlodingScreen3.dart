@@ -57,6 +57,17 @@ class Onlodingscreen3 extends StatelessWidget {
                 subtitle: "Build discipline and mental resilience.",
                 onTap: () {},
               ),
+              SizedBox(height: 120),
+              Center(
+                child: Text(
+                  "Your Answer Helps Aura Personalize Your Session",
+                  style: TextStyle(
+                    color: Color(0xffFFFFFF),
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
 
               SizedBox(height: 200),
 

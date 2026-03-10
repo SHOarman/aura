@@ -1,7 +1,7 @@
 abstract class AppRoutes {
 
 
-  //==========================================Splash Screen
+  //==========================================Splash Screen==================================
   static const splash = '/splash';
   static const onlodingscreen = '/onlodingscreen';
   static const onlodaingscreen2 = '/onlodaingscreen2';
@@ -28,14 +28,14 @@ static const home = '/home';
 static const seealldata='/seealldata';
 static const vsualisation = '/library';
 static const motivation = '/motivation';
-static const action = '/action';
+static const action = '/profile';
 static const aicreate='/aicreate';
 static const musicPlayerScreen = '/musicPlayerScreen';
 
 
 //===============profile=============================
 
-static const profile = '/profile';
+static const profile = '/action';
 static const subcription = '/subcription';
 
 
@@ -45,6 +45,7 @@ static const subcription = '/subcription';
 static const startwithai = '/startwithai';
 static const writemyscript = '/writemyscript';
 static const createScriptScreen="/createScriptScreen";
+static const auraScriptCreator="/auraScriptCreator";
 
 
 

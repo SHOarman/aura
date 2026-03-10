@@ -1,4 +1,4 @@
-import 'package:aura/presentation/screeen_ui/action/profile/profilewidget/subscriptionCard.dart';
+import 'package:aura/presentation/screeen_ui/profile/profile/profilewidget/subscriptionCard.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../core/services/globelcontroller.dart';
@@ -20,7 +20,7 @@ class SubscriptionScreen extends StatelessWidget {
           "Upgrade to Aura Premium",
           style: TextStyle(
             color: Colors.white,
-            fontSize: 18,
+            fontSize: 20,
             fontWeight: FontWeight.w600,
           ),
         ),

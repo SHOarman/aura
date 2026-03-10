@@ -29,7 +29,7 @@ class Aicreate extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 24),
+              SizedBox(height: 40),
 
               VisualizationCard(
                 boldText: 'Let AI create my visualization',
@@ -37,12 +37,13 @@ class Aicreate extends StatelessWidget {
                     'Describe your goal and the AI generates immersive mental coaching with audio',
                 buttonLabel: 'Guide by Aura',
                 onTap: () {
+                  Get.toNamed(AppRoutes.auraScriptCreator);
 
-                  Get.toNamed(AppRoutes.createScriptScreen);
+
                 },
               ),
 
-              SizedBox(height: 12),
+              SizedBox(height: 22),
 
 
               VisualizationCard(
@@ -51,17 +52,12 @@ class Aicreate extends StatelessWidget {
                 'Write your text and AI transforms it into audio',
                 buttonLabel: 'Write your own Script',
                 onTap: () {
+
+                  Get.toNamed(AppRoutes.createScriptScreen);
                 },
               ),
 
-              // VisualizationCard(
-              //   boldtext: "Write my own visualization",
-              //   text: "Write your text and the AI transforms it into audio",
-              //   onTap: () {
-              //     Get.toNamed(AppRoutes.writemyscript);
-              //   },
-              //   iconename: "Write my script",
-              // ),
+
             ],
           ),
         ),
