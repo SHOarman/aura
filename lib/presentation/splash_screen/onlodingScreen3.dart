@@ -22,7 +22,7 @@ class Onlodingscreen3 extends StatelessWidget {
 
               Center(
                 child: Text(
-                  "What are you preparing for?",
+                  "what_preparing_for".tr,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 22,
@@ -34,33 +34,36 @@ class Onlodingscreen3 extends StatelessWidget {
               SizedBox(height: 30),
 
               Onlodingcard(
-                title: "Athletic Performance",
-                subtitle: "Perform with clarity and composure.",
+                title: "athletic_performance".tr,
+                subtitle: "perform_clarity_composure".tr,
                 onTap: () {},
               ),
 
               SizedBox(height: 8),
               Onlodingcard(
-                title: "Business & Leadership",
-                subtitle: "Execute with confidence under pressure.",
+                title: "business_leadership".tr,
+                subtitle: "execute_confidence_pressure".tr,
                 onTap: () {},
               ),
               SizedBox(height: 8),
               Onlodingcard(
-                title: "Competitive Exams",
-                subtitle: "Maintain focus when it matters most.",
+                title: "competitive_exams".tr,
+                subtitle: "maintain_focus_matters_most".tr,
                 onTap: () {},
               ),
               SizedBox(height: 8),
               Onlodingcard(
-                title: "Personal Mastery",
-                subtitle: "Build discipline and mental resilience.",
-                onTap: () {},
+                title: "personal_mastery".tr,
+                subtitle: "build_discipline_resilience".tr,
+                onTap: () {
+
+
+                },
               ),
               SizedBox(height: 120),
               Center(
                 child: Text(
-                  "Your Answer Helps Aura Personalize Your Session",
+                  "answer_helps_personalize".tr,
                   style: TextStyle(
                     color: Color(0xffFFFFFF),
                     fontWeight: FontWeight.w400,

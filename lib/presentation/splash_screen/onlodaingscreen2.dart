@@ -1,8 +1,8 @@
 import 'package:aura/globelwidgets/custombutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get.dart';
 
-import '../../core/routes/app_routes.dart';
 
 class Onlodaingscreen2 extends StatelessWidget {
   const Onlodaingscreen2({super.key});
@@ -18,9 +18,9 @@ class Onlodaingscreen2 extends StatelessWidget {
             children: [
               const SizedBox(height: 200),
 
-              const Center(
+               Center(
                 child: Text(
-                  "Aura is mental",
+                  "auraismental".tr,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 24,
@@ -29,7 +29,7 @@ class Onlodaingscreen2 extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5),
-              const Center(
+              Center(
                 child: Text(
                   "performance training.",
                   style: TextStyle(
@@ -46,9 +46,9 @@ class Onlodaingscreen2 extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Row(
                   children: [
-                    Expanded(child: _buildGradientItem("Not meditation")),
+                    Expanded(child: _buildGradientItem("notmeditation".tr)),
                     const SizedBox(width: 20),
-                    Expanded(child: _buildGradientItem("Not motivation")),
+                    Expanded(child: _buildGradientItem("notmeditation".tr)),
                   ],
                 ),
               ),
@@ -57,7 +57,7 @@ class Onlodaingscreen2 extends StatelessWidget {
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: _buildGradientItem("Preparation", isFullWidth: true),
+                child: _buildGradientItem("preparation".tr, isFullWidth: true),
               ),
 
               SizedBox(height: 300),

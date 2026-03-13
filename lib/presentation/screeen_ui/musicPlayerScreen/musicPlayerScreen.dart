@@ -1,6 +1,6 @@
 import 'package:aura/core/routes/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart'; // GetX add kora hoyeche navigation-er jonno
+import 'package:get/get.dart';
 
 class MusicPlayerScreen extends StatelessWidget {
   const MusicPlayerScreen({super.key});

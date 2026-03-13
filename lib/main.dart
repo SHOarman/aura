@@ -48,16 +48,15 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/get.dart'; // GetX-er full package import korun
 
 import 'core/dependency_injection/injection.dart';
+import 'core/multiplelanguage/apptransltions.dart';
 import 'core/routes/app_pages.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
   DependencyInjection.bindings();
-
 
   runApp(
     DevicePreview(
@@ -73,9 +72,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      useInheritedMediaQuery: true,
-      locale: DevicePreview.locale(context),
+      translations: AppTranslations(),
 
+      locale: DevicePreview.locale(context) ?? const Locale('en', 'US'),
+      fallbackLocale: const Locale('en', 'US'),
+
+      useInheritedMediaQuery: true,
       builder: (context, child) {
         return DevicePreview.appBuilder(
           context,
@@ -88,7 +90,6 @@ class MyApp extends StatelessWidget {
                   image: AssetImage("assets/images/Property 1=background2.png"),
                   fit: BoxFit.cover,
                 ),
-
               ),
               child: child,
             ),

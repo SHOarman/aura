@@ -1,9 +1,6 @@
 import 'package:aura/presentation/splash_screen/onlodingScreen3.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/src/extension_instance.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get.dart';
 
 import '../../core/services/globelcontroller.dart';
 import '../../globelwidgets/custombutton.dart';
@@ -18,6 +15,57 @@ class Onlodingscreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.transparent,
+      // AppBar eikhane condition apply kora hoyeche
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          Obx(() => controller.currentPage.value == 0
+              ? PopupMenuButton<String>(
+            onSelected: (value) {
+              if (value == 'en') {
+                Get.updateLocale(const Locale('en', 'US'));
+              } else if (value == 'fr') {
+                Get.updateLocale(const Locale('fr', 'FR'));
+              }
+            },
+            color: const Color(0xFF1A1124),
+            offset: const Offset(0, 50),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              margin: const EdgeInsets.only(right: 15),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.white54),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: const Row(
+                children: [
+                  Icon(Icons.language, color: Colors.white, size: 18),
+                  SizedBox(width: 5),
+                  Text(
+                    "Language",
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                  ),
+                  Icon(Icons.arrow_drop_down, color: Colors.white),
+                ],
+              ),
+            ),
+            itemBuilder: (context) => [
+              const PopupMenuItem(
+                value: 'en',
+                child: Text("English", style: TextStyle(color: Colors.white)),
+              ),
+              const PopupMenuItem(
+                value: 'fr',
+                child: Text("Français", style: TextStyle(color: Colors.white)),
+              ),
+            ],
+          )
+              : const SizedBox.shrink(),
+          ),
+        ],
+      ),
+      extendBodyBehindAppBar: true,
       body: Stack(
         children: [
           PageView(
@@ -37,7 +85,7 @@ class Onlodingscreen extends StatelessWidget {
             child: Column(
               children: [
                 Obx(
-                  () => Row(
+                      () => Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: List.generate(3, (index) {
                       bool isActive = controller.currentPage.value == index;
@@ -50,11 +98,11 @@ class Onlodingscreen extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8),
                           gradient: isActive
                               ? const LinearGradient(
-                                  colors: [
-                                    Color(0xFF4A6CF7),
-                                    Color(0xFFC159E1),
-                                  ],
-                                )
+                            colors: [
+                              Color(0xFF4A6CF7),
+                              Color(0xFFC159E1),
+                            ],
+                          )
                               : null,
                           color: isActive ? null : Colors.white,
                         ),
@@ -67,7 +115,7 @@ class Onlodingscreen extends StatelessWidget {
 
                 // Continue Button
                 Custombutton(
-                  text: "Continue",
+                  text: "continue_btn".tr,
                   ontap: controller.goToNextPage,
                   gradient: const LinearGradient(
                     colors: [Color(0xFF4A6CF7), Color(0xFFC159E1)],
@@ -82,25 +130,25 @@ class Onlodingscreen extends StatelessWidget {
   }
 
   Widget _buildFirstPage() {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          SizedBox(height: 180),
+          const SizedBox(height: 180),
           Text(
-            "Before every defining moment,\nthere is preparation.",
+            "onboarding_title_1".tr,
             textAlign: TextAlign.center,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 22,
               fontWeight: FontWeight.w700,
               color: Colors.white,
             ),
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Text(
-            "The difference is built in advance.",
-            style: TextStyle(
+            "onboarding_subtitle_1".tr,
+            style: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w400,
               color: Colors.white70,

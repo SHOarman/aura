@@ -128,12 +128,14 @@ class liberycard extends StatefulWidget {
   final String title;
   final String imagepagth;
   final VoidCallback ontap;
+  final String titlenew; // Custom titlenew variable
 
   const liberycard({
     super.key,
     required this.imagepagth,
     required this.title,
     required this.ontap,
+    required this.titlenew, // Constructor e add kora hoyeche
   });
 
   @override
@@ -151,8 +153,7 @@ class _liberycard extends State<liberycard> {
     return GestureDetector(
       onTap: widget.ontap,
       child: Container(
-
-        width:250,
+        width: 250,
         height: 244,
         margin: const EdgeInsets.only(right: 6),
         decoration: BoxDecoration(
@@ -171,15 +172,14 @@ class _liberycard extends State<liberycard> {
                 width: 240,
                 fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) => Container(
-                  height: 155,
+                  height: 120,
+                  width: 240,
                   color: Colors.white10,
                   child: const Icon(Icons.broken_image, color: Colors.white54),
                 ),
               ),
             ),
-
             const SizedBox(height: 12),
-
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -189,7 +189,7 @@ class _liberycard extends State<liberycard> {
                     style: const TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w400,
-                      color:Color(0xffD9DADB),
+                      color: Color(0xffD9DADB),
                     ),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -208,25 +208,18 @@ class _liberycard extends State<liberycard> {
                 ),
               ],
             ),
-
             const SizedBox(height: 2),
 
-            Row(
-              children: [
-
-                const Text(
-                  "Pre-Performance Focus",
-                  style: TextStyle(
-                      fontSize: 12,
-                      color: Color(0xFFFCFDFD),
-                      fontWeight: FontWeight.w500
-                  ),
-                ),
-              ],
+            // Eikhane titlenew add kora hoyeche
+            Text(
+              widget.titlenew,
+              style: const TextStyle(
+                  fontSize: 12,
+                  color: Color(0xFFFCFDFD),
+                  fontWeight: FontWeight.w500),
             ),
 
             const SizedBox(height: 4),
-
             const Text(
               "Prepare your mind before important\n moments.",
               style: TextStyle(

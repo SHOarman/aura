@@ -8,10 +8,14 @@ import 'package:aura/presentation/screeen_ui/aicreate/aicreate.dart';
 import 'package:aura/presentation/screeen_ui/aicreate/auraScriptCreator.dart';
 import 'package:aura/presentation/screeen_ui/aicreate/startwithai.dart';
 import 'package:aura/presentation/screeen_ui/aicreate/writemyscript.dart';
+import 'package:aura/presentation/screeen_ui/home/ConfidenceReset.dart';
+import 'package:aura/presentation/screeen_ui/home/PrePerformanceFocus.dart';
 import 'package:aura/presentation/screeen_ui/home/home.dart';
+import 'package:aura/presentation/screeen_ui/home/pressurecontrol.dart';
 import 'package:aura/presentation/screeen_ui/motivation/motivation.dart';
 import 'package:get/get.dart';
 
+import '../../presentation/screeen_ui/home/pressurecontroldetelsscreen.dart';
 import '../../presentation/screeen_ui/home/widget/seealldata.dart';
 import '../../presentation/screeen_ui/library/vsualisation.dart';
 import '../../presentation/screeen_ui/musicPlayerScreen/musicPlayerScreen.dart';
@@ -29,7 +33,7 @@ import '../../presentation/authscreen/Joinuser .dart';
 import 'app_routes.dart';
 
 class AppPages {
-  static const initial = AppRoutes.home;
+  static const initial = AppRoutes.splash;
 
   static final routes = [
     GetPage(name: AppRoutes.splash, page: () => const SplashScreen()),
@@ -58,7 +62,7 @@ class AppPages {
 
     //====================Screen__ui========================================
     GetPage(name: AppRoutes.home, page: () => const Home(),transition: Transition.noTransition),
-    GetPage(name: AppRoutes.seealldata, page: () => const Seealldata()),
+    // GetPage(name: AppRoutes.seealldata, page: () => const Seealldata()),
     GetPage(name: AppRoutes.vsualisation, page: () => const Vsualisation(),transition: Transition.noTransition),
     GetPage(name: AppRoutes.motivation, page: () => const Motivation(),transition: Transition.noTransition),
     GetPage(name: AppRoutes.action, page: () => const Action(),transition: Transition.noTransition),
@@ -77,6 +81,12 @@ class AppPages {
     GetPage(name: AppRoutes.musicPlayerScreen, page: () =>  MusicPlayerScreen()),
     GetPage(name: AppRoutes.createScriptScreen, page:()=>CreateScriptScreen()),
     GetPage(name: AppRoutes.auraScriptCreator, page: ()=>AuraScriptCreator()),
+    
+    //======================homedata=======================================
+    GetPage(name: AppRoutes.preperformanceFocus, page: ()=>Preperformancefocus()),
+    GetPage(name: AppRoutes.confidencereset, page: ()=>Confidencereset()),
+    GetPage(name: AppRoutes.pressurecontrol, page: ()=>Pressurecontrol()),
+    GetPage(name: AppRoutes.pressurcontrolecard, page: ()=>Pressurecontroldetelsscreen()),
 
 
 

@@ -23,8 +23,16 @@ abstract class AppRoutes {
  static const newpassword="/newpassword";
 
   //====================Screen__ui========================================
-
+//==================homesecation=============================
 static const home = '/home';
+static const preperformanceFocus="/preperformanceFocus";
+static const confidencereset="/confidencereset";
+static const pressurecontrol="/pressurecontrol";
+static const pressurcontrolecard="/pressurcontrolecard";
+
+
+
+
 static const seealldata='/seealldata';
 static const vsualisation = '/library';
 static const motivation = '/motivation';
