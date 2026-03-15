@@ -1,12 +1,7 @@
-
-
 import 'package:aura/presentation/splash_screen/widgets/gradientdotIcon.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/src/extension_instance.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/get.dart';
 
 import '../../core/services/globelcontroller.dart';
 
@@ -22,12 +17,7 @@ class Preperformancefocusdetelsscreen extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: const BoxDecoration(
-          // image: DecorationImage(
-          //   image: AssetImage("assets/images/background_stars.png"),
-          //   fit: BoxFit.cover,
-          // ),
-        ),
+        decoration: const BoxDecoration(),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -100,52 +90,53 @@ class Preperformancefocusdetelsscreen extends StatelessWidget {
 
                 const SizedBox(height: 30),
                 Row(
-                  crossAxisAlignment: .center,
-                  mainAxisAlignment: .center,
-
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "15 min",
+                     Text(
+                      "duration_15min".tr,
                       style: TextStyle(
                           color: Color(0xffD9DADB),
                           fontWeight: FontWeight.w600,
                           fontSize: 14,
-                          letterSpacing: 1.2
-                      ),
+                          letterSpacing: 1.2),
                     ),
-                    SizedBox(width: 4,),
+                    const SizedBox(width: 4),
                     //===================doticon===========================
-
-                    GradientDotIcon(),
-                    SizedBox(width: 4,),
-                    Text("Mental Preparation"
-                      ,style: TextStyle(
+                    const GradientDotIcon(),
+                    const SizedBox(width: 4),
+                    Text(
+                      "mental_preparation".tr,
+                      style: const TextStyle(
                           color: Color(0xffD9DADB),
                           fontWeight: FontWeight.w600,
                           fontSize: 14,
-                          letterSpacing: 1.2),)
-
+                          letterSpacing: 1.2),
+                    )
                   ],
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
 
                 // --- Content Title & Subtitle ---
-                const Center(
+                Center(
                   child: Column(
                     children: [
                       Text(
-                        "Pre-performance focus",
-                        style: TextStyle(
+                        "pre_performance_focus".tr,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Text(
-                        "Prepare your mind before important\nmoments.",
+                        "prepare_mind_before_moments".tr,
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Color(0xffF0F0F0), fontSize: 14,fontWeight: FontWeight.w400),
+                        style: const TextStyle(
+                            color: Color(0xffF0F0F0),
+                            fontSize: 14,
+                            fontWeight: FontWeight.w400),
                       ),
                     ],
                   ),
@@ -153,7 +144,7 @@ class Preperformancefocusdetelsscreen extends StatelessWidget {
 
                 const Spacer(),
 
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text('13:42', style: TextStyle(color: Colors.grey)),
@@ -181,9 +172,6 @@ class Preperformancefocusdetelsscreen extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 10),
-
-
-
                 const SizedBox(height: 40),
 
                 // --- Full Player Controls ---
@@ -222,14 +210,6 @@ class Preperformancefocusdetelsscreen extends StatelessWidget {
                         size: 30,
                       ),
                     ),
-                    // IconButton(
-                    //   onPressed: () {},
-                    //   icon: const Icon(
-                    //     Icons.repeat,
-                    //     color: Colors.white54,
-                    //     size: 30,
-                    //   ),
-                    // ),
                   ],
                 ),
 

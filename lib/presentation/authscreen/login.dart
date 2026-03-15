@@ -20,22 +20,21 @@ class Login extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-
                 children: [
                   IconButton(
                     onPressed: () {
                       Get.back();
                     },
-                    icon: Icon(Icons.arrow_back_ios, color: Colors.white),
+                    icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                   ),
-                  SizedBox(width: 60),
+                  const SizedBox(width: 60),
                   Center(
                     child: Text(
-                      "Sign up with email",
-                      style: TextStyle(
+                      "sign_up_with_email".tr,
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
                       ),
@@ -43,15 +42,15 @@ class Login extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
 
               CustomTextField(
-                hintText: 'Name',
+                hintText: 'name'.tr,
                 controller: nameController,
                 keyboardType: TextInputType.name,
               ),
               CustomTextField(
-                hintText: 'Password',
+                hintText: 'password'.tr,
                 controller: passwordController,
                 isPassword: true,
                 keyboardType: TextInputType.visiblePassword,
@@ -63,15 +62,12 @@ class Login extends StatelessWidget {
                 },
               ),
 
-              // SizedBox(height: 12),
               GestureDetector(
                 onTap: () {
-
                   Get.toNamed(AppRoutes.forgotpassword);
-
                 },
                 child: Text(
-                  "Forgotten password?",
+                  "forgotten_password".tr,
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -82,20 +78,20 @@ class Login extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Custombutton(
-                text: 'Log in',
+                text: 'login'.tr,
                 ontap: () {
-                Get.toNamed(AppRoutes.home);
+                  Get.toNamed(AppRoutes.home);
                 },
                 gradient: Appgradient.primaryGradient,
               ),
-              SizedBox(height: 320),
+              const SizedBox(height: 320),
 
               Center(
                 child: Text(
-                  "New to Aura",
-                  style: TextStyle(
+                  "new_to_aura".tr,
+                  style: const TextStyle(
                     color: Color(0xffEBEBEB),
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
@@ -103,18 +99,15 @@ class Login extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
 
               GestureDetector(
                 onTap: () {
-
                   Get.toNamed(AppRoutes.singup);
-
-
                 },
                 child: Center(
                   child: Text(
-                    'Create account',
+                    'create_account'.tr,
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w400,

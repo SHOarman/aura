@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get.dart';
 
 import '../../../core/routes/app_routes.dart';
 import '../screenwidgets/recommended.dart';
@@ -33,9 +32,9 @@ class Pressurecontrol extends StatelessWidget {
             ),
           ),
         ),
-        title: const Text(
-          "Pressure Control",
-          style: TextStyle(
+        title: Text(
+          "pressure_control".tr,
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -43,7 +42,6 @@ class Pressurecontrol extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Padding(
@@ -51,13 +49,11 @@ class Pressurecontrol extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       print("filter====================");
                     },
                     child: SvgPicture.asset(
@@ -66,10 +62,10 @@ class Pressurecontrol extends StatelessWidget {
                       width: 20,
                     ),
                   ),
-                  SizedBox(width: 6),
+                  const SizedBox(width: 6),
                   Text(
-                    "Filter",
-                    style: TextStyle(
+                    "filter".tr,
+                    style: const TextStyle(
                       color: Color(0xffF0F0F0),
                       fontWeight: FontWeight.w500,
                       fontSize: 14,
@@ -96,12 +92,13 @@ class Pressurecontrol extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return liberycard(
                         imagepagth: 'assets/images/newaa.png',
-                        title: 'Mental Preparation',
+                        title: 'mental_preparation'.tr,
                         ontap: () {
                           Get.toNamed(
                             AppRoutes.pressurcontrolecard,
                           );
-                        }, titlenew: 'Pressure Control',
+                        },
+                        titlenew: 'pressure_control'.tr,
                       );
                     },
                   ),
@@ -111,8 +108,6 @@ class Pressurecontrol extends StatelessWidget {
           ),
         ),
       ),
-
-
     );
   }
 }

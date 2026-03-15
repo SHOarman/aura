@@ -1,8 +1,7 @@
 import 'package:aura/presentation/screeen_ui/home/widget/seealldata.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get.dart';
 
 import '../../../core/routes/app_routes.dart';
 import '../screenwidgets/recommended.dart';
@@ -13,7 +12,6 @@ class Preperformancefocus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -35,9 +33,9 @@ class Preperformancefocus extends StatelessWidget {
             ),
           ),
         ),
-        title: const Text(
-          "Pre- Performance Focus",
-          style: TextStyle(
+        title: Text(
+          "pre_performance_focus".tr,
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -45,22 +43,18 @@ class Preperformancefocus extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-
       backgroundColor: Colors.transparent,
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       print("filter====================");
                     },
                     child: SvgPicture.asset(
@@ -69,10 +63,10 @@ class Preperformancefocus extends StatelessWidget {
                       width: 20,
                     ),
                   ),
-                  SizedBox(width: 6),
+                  const SizedBox(width: 6),
                   Text(
-                    "Filter",
-                    style: TextStyle(
+                    "filter".tr,
+                    style: const TextStyle(
                       color: Color(0xffF0F0F0),
                       fontWeight: FontWeight.w500,
                       fontSize: 14,
@@ -99,12 +93,13 @@ class Preperformancefocus extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return liberycard(
                         imagepagth: 'assets/images/newaa.png',
-                        title: 'Mental Preparation',
+                        title: 'mental_preparation'.tr,
                         ontap: () {
                           Get.toNamed(
                             AppRoutes.preperformancefocusdetelsscreen,
                           );
-                        }, titlenew: 'Pre-Performance Focus',
+                        },
+                        titlenew: 'pre_performance_focus'.tr,
                       );
                     },
                   ),
@@ -114,11 +109,6 @@ class Preperformancefocus extends StatelessWidget {
           ),
         ),
       ),
-
-
-
-
-
     );
   }
 }

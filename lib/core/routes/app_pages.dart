@@ -17,6 +17,7 @@ import 'package:get/get.dart';
 
 import '../../presentation/screeen_ui/home/pressurecontroldetelsscreen.dart';
 import '../../presentation/screeen_ui/home/widget/seealldata.dart';
+import '../../presentation/screeen_ui/library/library.dart';
 import '../../presentation/screeen_ui/library/vsualisation.dart';
 import '../../presentation/screeen_ui/musicPlayerScreen/musicPlayerScreen.dart';
 import '../../presentation/screeen_ui/profile/action.dart';
@@ -63,7 +64,8 @@ class AppPages {
     //====================Screen__ui========================================
     GetPage(name: AppRoutes.home, page: () => const Home(),transition: Transition.noTransition),
     // GetPage(name: AppRoutes.seealldata, page: () => const Seealldata()),
-    GetPage(name: AppRoutes.vsualisation, page: () => const Vsualisation(),transition: Transition.noTransition),
+    GetPage(name: AppRoutes.library, page: () => const Library(),transition: Transition.noTransition),
+    // GetPage(name: AppRoutes.vsualisation, page: () => const Vsualisation(),transition: Transition.noTransition),
     GetPage(name: AppRoutes.motivation, page: () => const Motivation(),transition: Transition.noTransition),
     GetPage(name: AppRoutes.action, page: () => const Action(),transition: Transition.noTransition),
     GetPage(name: AppRoutes.aicreate, page: () =>  Aicreate(),transition: Transition.noTransition),

@@ -36,22 +36,21 @@ class _NewpasswordState extends State<Newpassword> {
             key: _formKey,
             child: Column(
               children: [
-                SizedBox(height: 60),
+                const SizedBox(height: 60),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-
                   children: [
                     IconButton(
                       onPressed: () {
                         Get.back();
                       },
-                      icon: Icon(Icons.arrow_back_ios, color: Colors.white),
+                      icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                     ),
-                    SizedBox(width: 60),
+                    const SizedBox(width: 60),
                     Center(
                       child: Text(
-                        "New password",
-                        style: TextStyle(
+                        "new_password".tr,
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                         ),
@@ -59,35 +58,33 @@ class _NewpasswordState extends State<Newpassword> {
                     ),
                   ],
                 ),
-                SizedBox(height: 60),
-
+                const SizedBox(height: 60),
                 const SizedBox(height: 20),
 
                 CustomTextField(
-                  hintText: 'New password',
+                  hintText: 'new_password'.tr,
                   controller: newpasswordController,
                   isPassword: true,
                   keyboardType: TextInputType.visiblePassword,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'Please enter a password';
+                      return 'pwd_required'.tr;
                     }
                     if (value.length < 6) {
-                      return 'Password must be at least 6 characters';
+                      return 'pwd_min_length'.tr;
                     }
                     return null;
                   },
                 ),
 
-
                 CustomTextField(
-                  hintText: 'Confirm password',
+                  hintText: 'confirm_password'.tr,
                   controller: confirmpasswordController,
                   isPassword: true,
                   keyboardType: TextInputType.visiblePassword,
                   validator: (value) {
                     if (value != newpasswordController.text) {
-                      return 'Passwords do not match';
+                      return 'pwd_mismatch'.tr;
                     }
                     return null;
                   },
@@ -96,13 +93,12 @@ class _NewpasswordState extends State<Newpassword> {
                 const SizedBox(height: 420),
 
                 Custombutton(
-                  text: "Update Password",
+                  text: "reset_password".tr,
                   gradient: Appgradient.primaryGradient,
                   ontap: () {
-                    Get.toNamed(AppRoutes.login);
-
                     if (_formKey.currentState!.validate()) {
                       print("Password logic successful!");
+                      Get.toNamed(AppRoutes.login);
                     }
                   },
                 ),

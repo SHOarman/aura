@@ -22,8 +22,8 @@ class Joinuser extends StatelessWidget {
 
               Center(
                 child: Text(
-                  "Join millions of user",
-                  style: TextStyle(
+                  "join_millions_of_users".tr,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 28,
                     fontWeight: FontWeight.w700,
@@ -33,7 +33,7 @@ class Joinuser extends StatelessWidget {
               const SizedBox(height: 250),
 
               Custombutton(
-                text: "Sign In with Email",
+                text: "continue_with_email".tr,
                 iconPath: "assets/icon/emailbox.svg",
                 ontap: () => print("Email Login"),
                 gradient: Appgradient.primaryGradient,
@@ -41,7 +41,7 @@ class Joinuser extends StatelessWidget {
               const SizedBox(height: 12),
 
               Custombutton(
-                text: "Sign In with Google",
+                text: "continue_with_google".tr,
                 iconPath: "assets/icon/devicon_google.svg",
                 ontap: () => print("Google Login"),
                 backgroundColor: const Color(0xff1C1C1C),
@@ -49,7 +49,7 @@ class Joinuser extends StatelessWidget {
               const SizedBox(height: 12),
 
               Custombutton(
-                text: "Continue with Apple",
+                text: "continue_with_apple".tr,
                 iconPath: "assets/icon/app.svg",
                 ontap: () => print("Apple Login"),
                 backgroundColor: const Color(0xff1C1C1C),
@@ -67,9 +67,9 @@ class Joinuser extends StatelessWidget {
                         Rect.fromLTWH(0, 0, bounds.width, bounds.height),
                       ),
                   child: Center(
-                    child: const Text(
-                      "Log in with email",
-                      style: TextStyle(
+                    child: Text(
+                      "log_in_with_email".tr,
+                      style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                         color: Colors.white,
@@ -87,15 +87,15 @@ class Joinuser extends StatelessWidget {
                   text: TextSpan(
                     style: const TextStyle(height: 1.5),
                     children: [
-                      const TextSpan(
-                        text: "By continuing you accept the ",
-                        style: TextStyle(
+                      TextSpan(
+                        text: "by_continuing_you_accept".tr + " ",
+                        style: const TextStyle(
                           color: Color(0xffDEDEDE),
                           fontSize: 14,
                         ),
                       ),
                       TextSpan(
-                        text: "terms of use",
+                        text: "terms_of_use".tr,
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -105,15 +105,15 @@ class Joinuser extends StatelessWidget {
                             ),
                         ),
                       ),
-                      const TextSpan(
-                        text: " and\n ",
-                        style: TextStyle(
+                      TextSpan(
+                        text: " ${"and".tr}\n ",
+                        style: const TextStyle(
                           color: Color(0xffDEDEDE),
                           fontSize: 14,
                         ),
                       ),
                       TextSpan(
-                        text: "privacy policy",
+                        text: "privacy_policy".tr,
                         style: TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,

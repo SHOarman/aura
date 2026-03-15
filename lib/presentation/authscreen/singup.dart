@@ -21,22 +21,21 @@ class Singup extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             children: [
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-
                 children: [
                   IconButton(
                     onPressed: () {
                       Get.back();
                     },
-                    icon: Icon(Icons.arrow_back_ios, color: Colors.white),
+                    icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                   ),
-                  SizedBox(width: 60),
+                  const SizedBox(width: 60),
                   Center(
                     child: Text(
-                      "Sign up with email",
-                      style: TextStyle(
+                      "sign_up_with_email".tr,
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                       ),
@@ -44,72 +43,70 @@ class Singup extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 60),
+              const SizedBox(height: 60),
               CustomTextField(
-                hintText: "Name",
+                hintText: "name".tr,
                 controller: nameController,
                 keyboardType: TextInputType.name,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Please enter your name';
+                    return 'name_required'.tr;
                   }
                   return null;
                 },
               ),
-              // SizedBox(height: 8),
               CustomTextField(
-                hintText: "Email",
+                hintText: "email".tr,
                 controller: emailController,
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Please enter your email';
+                    return 'email_required'.tr;
                   }
                   return null;
                 },
               ),
-              // SizedBox(height: 8),
               CustomTextField(
-                hintText: "password",
+                hintText: "password".tr,
                 controller: passwordController,
                 keyboardType: TextInputType.visiblePassword,
                 isPassword: true,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Please enter your password';
+                    return 'pwd_enter'.tr;
                   }
                   return null;
                 },
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
 
               Custombutton(
-                text: 'Create account',
+                text: 'create_account'.tr,
                 ontap: () {
-                  print('Create account');
+                  Get.toNamed(AppRoutes.login);
                 },
                 gradient: Appgradient.primaryGradient,
               ),
 
-              SizedBox(height: 300),
+              const SizedBox(height: 300),
 
               Center(
                 child: Text(
-                  "Already have an account?",
-                  style: TextStyle(
+                  "already_have_account".tr,
+                  style: const TextStyle(
                     color: Color(0xffEBEBEB),
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
                   ),
                 ),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               GestureDetector(
                 onTap: () {
                   Get.toNamed(AppRoutes.login);
                 },
                 child: Text(
-                  'Login',
+                  'login'.tr,
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w400,
@@ -120,8 +117,6 @@ class Singup extends StatelessWidget {
                   ),
                 ),
               ),
-
-
             ],
           ),
         ),

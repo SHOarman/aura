@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get.dart';
 
 import '../../../core/routes/app_routes.dart';
 import '../screenwidgets/recommended.dart';
@@ -33,9 +32,9 @@ class Confidencereset extends StatelessWidget {
             ),
           ),
         ),
-        title: const Text(
-          "Confidence Reset",
-          style: TextStyle(
+        title: Text(
+          "confidence_reset".tr,
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -43,9 +42,7 @@ class Confidencereset extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-
       backgroundColor: Colors.transparent,
-
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -65,10 +62,10 @@ class Confidencereset extends StatelessWidget {
                       width: 20,
                     ),
                   ),
-                  SizedBox(width: 6),
+                  const SizedBox(width: 6),
                   Text(
-                    "Filter",
-                    style: TextStyle(
+                    "filter".tr,
+                    style: const TextStyle(
                       color: Color(0xffF0F0F0),
                       fontWeight: FontWeight.w500,
                       fontSize: 14,
@@ -86,21 +83,22 @@ class Confidencereset extends StatelessWidget {
                     padding: const EdgeInsets.all(10),
                     itemCount: 4,
                     gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10,
-                          mainAxisExtent: 220,
-                        ),
+                    const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10,
+                      mainAxisSpacing: 10,
+                      mainAxisExtent: 220,
+                    ),
                     itemBuilder: (context, index) {
                       return liberycard(
                         imagepagth: 'assets/images/newaa.png',
-                        title: 'Mental Preparation',
+                        title: 'mental_preparation'.tr,
                         ontap: () {
                           Get.toNamed(
                             AppRoutes.preperformancefocusdetelsscreen,
                           );
-                        }, titlenew: 'Confidence Reset',
+                        },
+                        titlenew: 'confidence_reset'.tr,
                       );
                     },
                   ),

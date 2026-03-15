@@ -20,11 +20,11 @@ class Onlodaingscreen4 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(height: 200),
+              const SizedBox(height: 200),
               Center(
                 child: Text(
-                  'The Edge Begins Within.',
-                  style: TextStyle(
+                  'edge_begins_within'.tr,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 22,
                     fontWeight: FontWeight.w700,
@@ -32,22 +32,12 @@ class Onlodaingscreen4 extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               Center(
                 child: Text(
-                  "Train your mind with the same discipline",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 0.6,
-                  ),
-                ),
-              ),
-              Center(
-                child: Text(
-                  "you train your craft.",
-                  style: TextStyle(
+                  "aura_mental_performance".tr,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
@@ -56,18 +46,18 @@ class Onlodaingscreen4 extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 380),
+              const SizedBox(height: 380),
 
               Custombutton(
-                text: "Begin Training",
+                text: "begin_your_preparation".tr,
                 ontap: () {
                   Get.toNamed(AppRoutes.onlodaingscreen5);
                 },
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                   colors: [Color(0xFF4A6CF7), Color(0xFFC159E1)],
                 ),
               ),
-              SizedBox(height: 18),
+              const SizedBox(height: 18),
 
               Center(
                 child: RichText(
@@ -76,11 +66,9 @@ class Onlodaingscreen4 extends StatelessWidget {
                     style: const TextStyle(height: 1.5),
                     children: [
                       TextSpan(
-                        text: "Sing in",
+                        text: "login".tr,
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            print("Sing in");
-
                             Get.toNamed(AppRoutes.login);
                           },
                         style: TextStyle(
@@ -88,16 +76,19 @@ class Onlodaingscreen4 extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           foreground: Paint()
                             ..shader =
-                                LinearGradient(
-                                  colors: Appgradient.primaryGradient.colors,
-                                ).createShader(
-                                  const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
-                                ),
+                            LinearGradient(
+                              colors: Appgradient.primaryGradient.colors,
+                            ).createShader(
+                              const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
+                            ),
                         ),
+
                       ),
 
-                      const TextSpan(
-                        text: " 0r ",
+
+                       TextSpan(
+
+                        text: "orseparator".tr,
                         style: TextStyle(
                           color: Color(0xffDEDEDE),
                           fontSize: 14,
@@ -106,10 +97,9 @@ class Onlodaingscreen4 extends StatelessWidget {
                       TextSpan(
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            print("createa acound");
                             Get.toNamed(AppRoutes.joinuser);
                           },
-                        text: "Creatae  account",
+                        text: "create_account".tr,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,

@@ -17,8 +17,7 @@ class Onlodaingscreen5 extends StatelessWidget {
             onPressed: () {
               Get.back();
             },
-            label: Icon(Icons.arrow_back_ios,color: Colors.white,size: 18,),
-
+            label: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 18),
           ),
         ),
         backgroundColor: Colors.transparent,
@@ -27,54 +26,53 @@ class Onlodaingscreen5 extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Text(
-                "Preparation starts now.",
-                style: TextStyle(
+                "prep_starts".tr,
+                style: const TextStyle(
                   color: Color(0xffFFFFFF),
                   fontSize: 20,
                   fontWeight: FontWeight.w400,
                 ),
               ),
 
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
 
               //====================================PreparationCard===========================================
               PreparationCard(
                 ontap: () {
-                 Get.toNamed(AppRoutes.onlodaingscreen6);
+                  Get.toNamed(AppRoutes.onlodaingscreen6);
                 },
               ),
 
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               Text(
-                "Quick Mental Sessions",
-                style: TextStyle(
+                "quick_sessions".tr,
+                style: const TextStyle(
                   color: Color(0xffFFFFFF),
                   fontWeight: FontWeight.w400,
                   fontSize: 20,
                 ),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
 
               //===========================================Quickmentalsessionscard==================================================//
               Quickmentalsessionscard(
                 ontap: () {
-
                   Get.toNamed(AppRoutes.preperformancefocusdetelsscreen);
                 },
-                name: 'Pre-Performance Focus',
+                name: 'pre_performance_focus'.tr,
               ),
 
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               Quickmentalsessionscard(
                 ontap: () {},
-                name: 'Confidence Reset',
+                name: 'confidence_reset'.tr,
               ),
-              SizedBox(height: 10,),
+              const SizedBox(height: 10,),
               Quickmentalsessionscard(
                 ontap: () {},
-                name: 'Pressure Control',
+                name: 'pressure_control'.tr,
               ),
 
             ],

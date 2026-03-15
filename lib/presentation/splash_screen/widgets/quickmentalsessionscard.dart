@@ -6,7 +6,6 @@ class Quickmentalsessionscard extends StatelessWidget {
   final VoidCallback ontap;
   final String name;
 
-  // Initialize the controller
   final Globelcontroller controller = Get.put(Globelcontroller());
 
   Quickmentalsessionscard({
@@ -23,35 +22,49 @@ class Quickmentalsessionscard extends StatelessWidget {
         ontap();
       },
       child: Obx(() {
-
         bool isSelected = controller.selectedSession.value == name;
 
         return AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          padding: const EdgeInsets.fromLTRB(16, 18, 16, 18),
           height: 56,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
+            borderRadius: BorderRadius.circular(12),
+            // GRADIENT BORDER LOGIC
+            gradient: isSelected
+                ?  LinearGradient(colors: [Colors.white38, Colors.white38])
+                :  LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: isSelected
-                  ? const [Color(0xFFD75BE3), Color(0xFF4C65E3)]
-                  : const [Color(0x991B1424), Color(0x4D574074)],
-            ),
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              color: isSelected ? Colors.white38 : const Color(0x4D574074),
-              width: 1,
+              colors: [
+                // Color(0x804C65E3), // #4C65E3 at 50%
+                // Color(0x33D75BE9),
+                Color(0xFF4C65E3),
+                 Color(0xFFD75BE3)
+                // #D75BE3 at 20%
+              ],
             ),
           ),
-          child: Center(
-            child: Text(
-              name,
-              style: const TextStyle(
-                color: Color(0xffFFFFFF),
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
+          child: Container(
+            margin: const EdgeInsets.all(1.5),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(11),
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: isSelected
+                    ? const [Color(0xFFD75BE3), Color(0xFF4C65E3)]
+                    : const [Color(0xFF1B1424), Color(0xFF1B1424)],
+              ),
+            ),
+            child: Center(
+              child: Text(
+                name,
+                style: const TextStyle(
+                  color: Color(0xffFFFFFF),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ),

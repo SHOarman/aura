@@ -35,10 +35,10 @@ class Resetpassword extends StatelessWidget {
                       icon: const Icon(Icons.arrow_back_ios, color: Colors.white, size: 20),
                     ),
                     const SizedBox(width: 60),
-                    const Center(
+                    Center(
                       child: Text(
-                        "Reset password",
-                        style: TextStyle(
+                        "reset_password".tr,
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w500,
                         ),
@@ -47,15 +47,20 @@ class Resetpassword extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 60),
-                CustomTextField(hintText: 'Email', controller: emailController),
+                CustomTextField(
+                    hintText: 'email'.tr,
+                    controller: emailController
+                ),
                 const SizedBox(height: 12),
                 OtpTextFieldWithTimer(
                   controller: codeCotroller,
-                  onSendCode: () {},
+                  onSendCode: () {
+
+                  },
                 ),
                 const SizedBox(height: 380),
                 Custombutton(
-                  text: "Continue",
+                  text: "continue_btn".tr,
                   ontap: () {
                     Get.toNamed(AppRoutes.newpassword);
                   },

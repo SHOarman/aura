@@ -13,6 +13,11 @@ abstract class AppRoutes {
   static const preperformancefocusdetelsscreen = '/preperformancefocusdetelsscreen';
 
 
+  //===========libary========================
+  static const library = '/library';
+  static const librarydetails = '/librarydetails';
+
+
 
 
 
