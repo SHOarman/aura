@@ -15,16 +15,17 @@ class Action extends StatelessWidget {
     final ProfileController controller = Get.put(ProfileController());
 
     return Scaffold(
-      bottomNavigationBar: CustomBottomNav(selectIndex: 4),
+      bottomNavigationBar: const CustomBottomNav(selectIndex: 4),
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-
         automaticallyImplyLeading: false,
-        title: const Text(
-          "Profile",
-          style: TextStyle(
+        title: Text(
+          "profile".tr, // Key exists in AppTranslations
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: const TextStyle(
             color: Color(0xffF0F0F0),
             fontSize: 22,
             fontWeight: FontWeight.w500,
@@ -59,10 +60,10 @@ class Action extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 12),
-                    const Expanded(
+                    Expanded(
                       child: Text(
-                        "Notifications",
-                        style: TextStyle(
+                        "Notifications".tr, // Matches key 'Notifications'
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 16,
                           fontWeight: FontWeight.w400,
@@ -109,22 +110,22 @@ class Action extends StatelessWidget {
 
               //==================== Other Profile Widgets ====================
               Profilewidget(
-                text: "Payments",
+                text: "Payments".tr, // Matches key 'Payments'
                 icon: "assets/icon/fluent_payment-20-filled.svg",
                 onTap: () {},
               ),
               Profilewidget(
-                text: "Subscription",
+                text: "Subscription".tr, // Matches key 'Subscription'
                 icon: "assets/icon/Group.svg",
                 onTap: () => Get.toNamed(AppRoutes.subcription),
               ),
               Profilewidget(
-                text: "Privacy",
+                text: "Privacy".tr, // Matches key 'Privacy'
                 icon: "assets/icon/tabler_lock-filled.svg",
                 onTap: () {},
               ),
               Profilewidget(
-                text: "Terms of Use",
+                text: "Terms of Use".tr, // Matches key 'Terms of Use'
                 icon: "assets/icon/material-symbols_privacy-tip.svg",
                 onTap: () {},
               ),
@@ -151,9 +152,9 @@ class Action extends StatelessWidget {
                       children: [
                         SvgPicture.asset("assets/icon/majesticons_logout.svg"),
                         const SizedBox(width: 10),
-                        const Text(
-                          "Logout",
-                          style: TextStyle(
+                        Text(
+                          "logout".tr, // Matches lowercase key 'logout' in your map
+                          style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
                             color: Colors.white,

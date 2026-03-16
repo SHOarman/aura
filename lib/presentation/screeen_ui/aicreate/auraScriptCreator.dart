@@ -1,93 +1,183 @@
+import 'package:aura/core/services/aicontrollergrobel.dart';
+import 'package:aura/presentation/screeen_ui/library/widget/savingscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../../core/services/aicontrollergrobel.dart';
 
-class AuraScriptCreator extends StatelessWidget {
+class AuraScriptCreator extends StatefulWidget {
   final bool isAuraMode;
   AuraScriptCreator({super.key, this.isAuraMode = true});
 
-  final AiControllerGlobal aiController = Get.put(AiControllerGlobal());
-
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  State<AuraScriptCreator> createState() => _AuraScriptCreatorState();
+}
+
+class _AuraScriptCreatorState extends State<AuraScriptCreator> {
+  final AiControllerGlobal aiController = Get.put(AiControllerGlobal());
+  final PageController _pageController = PageController();
+  final RxInt _currentStep = 0.obs;
+
+  // Translation key for initial state
+  final RxString selectedCategory = "select_your_categroy".obs;
+  final TextEditingController audioTitleController = TextEditingController();
+
+  // Keys mapped directly from AppTranslations
+  final List<String> categories = [
+    "mental_preparation",
+    "confidence_reinforcement",
+    "pressure_control",
+    "peak_state_activation",
+  ];
+
+  final List<Color> bgGradientColors = const [Color(0x4D1B1424), Color(0x26574074)];
+
+  // Dynamic titles using .tr
+  String get _stepTitle {
+    switch (_currentStep.value) {
+      case 0: return "write_your_own_script".tr;
+      case 1: return "style".tr;
+      case 2: return "select_your_categroy".tr;
+      case 3: return "add_a_audio_title".tr;
+      default: return "";
+    }
+  }
+
+  void _nextStep() => _pageController.nextPage(duration: 300.milliseconds, curve: Curves.easeInOut);
+
+  void _prevStep() {
+    if (_currentStep.value > 0) {
+      _pageController.previousPage(duration: 300.milliseconds, curve: Curves.easeInOut);
+    } else {
+      Get.back();
+    }
+  }
+
+  void _showCategoryPopup() {
+    showModalBottomSheet(
+      context: context,
       backgroundColor: Colors.transparent,
-      appBar: _buildAppBar(),
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      builder: (context) => Container(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        decoration: const BoxDecoration(
+          color: Color(0xFF1B1424),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+        ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            _buildLabel("Script"),
-            _buildScriptBox(),
-
-            const SizedBox(height: 25),
-
-            _buildLabel("Style"),
-            _buildStyleBox(),
-
-            const SizedBox(height: 25),
-            _buildDropdownField("Select your category"),
-
-            const SizedBox(height: 15),
-            _buildIconTextField(
-              Icons.music_note_outlined,
-              "Add an audio title",
-            ),
-
-            const SizedBox(height: 40),
-
-            Obx(() {
-              bool isValid = isAuraMode
-                  ? aiController.isAuraFormValid
-                  : aiController.isOwnFormValid;
-              return _buildCreateButton(isValid);
-            }),
+            Container(width: 40, height: 4, decoration: BoxDecoration(color: Colors.white24, borderRadius: BorderRadius.circular(10))),
             const SizedBox(height: 20),
+            Text("select_your_categroy".tr, style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 10),
+            Flexible(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: categories.length,
+                itemBuilder: (context, index) => ListTile(
+                  title: Text(categories[index].tr, style: const TextStyle(color: Colors.white70), textAlign: TextAlign.center),
+                  onTap: () {
+                    selectedCategory.value = categories[index];
+                    Navigator.pop(context);
+                    _nextStep();
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFF0F0B15),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        centerTitle: true,
+        leading: IconButton(icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white), onPressed: _prevStep),
+        title: Obx(() => Text(_stepTitle, style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold))),
+      ),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: (index) => _currentStep.value = index,
+        physics: const NeverScrollableScrollPhysics(),
+        children: [
+          _buildStepWrapper(_buildScriptBox(), "continue_btn".tr, _nextStep),
+          _buildStepWrapper(_buildStyleBox(), "continue_btn".tr, _nextStep),
+          _buildCategoryPage(),
+          _buildStepWrapper(_buildTitleInput(), "create".tr, () {
+            String finalTitle = audioTitleController.text.trim();
+            Get.to(() => Savingscreen(
+              title: finalTitle.isEmpty ? "Untitled Script" : finalTitle,
+              category: selectedCategory.value.tr,
+              duration: "ten_min".tr,
+              imagePath: "assets/images/Frame 1171275468.png",
+              subTitle: 'prepare_mind_before_moments'.tr,
+            ));
+          }),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildStepWrapper(Widget content, String buttonText, VoidCallback onBtnTap) {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        children: [
+          Expanded(child: SingleChildScrollView(child: _buildGradientWrapper(child: content, radius: 24))),
+          const SizedBox(height: 20),
+          _buildActionButton(buttonText, onBtnTap, true),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildCategoryPage() {
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          GestureDetector(
+            onTap: _showCategoryPopup,
+            child: _buildGradientWrapper(
+              radius: 18,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                decoration: BoxDecoration(color: bgGradientColors[0], borderRadius: BorderRadius.circular(18)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Obx(() => Text(
+                        selectedCategory.value.tr,
+                        style: const TextStyle(color: Colors.white, fontSize: 16)
+                    )),
+                    const Icon(Icons.keyboard_arrow_down, color: Colors.white54),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget _buildScriptBox() {
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
-        borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: Colors.white.withOpacity(0.1)),
-      ),
-      child: Column(
-        children: [
-          TextField(
-            maxLines: 8,
-            style: const TextStyle(color: Colors.white, fontSize: 15),
-            onChanged: (val) => aiController.updateScript(val, isAuraMode),
-            decoration: InputDecoration(
-              hintText: isAuraMode
-                  ? "Generate text with AI..."
-                  : "Write your own script...",
-              hintStyle: TextStyle(
-                color: Colors.white.withOpacity(0.3),
-                fontSize: 14,
-              ),
-              border: InputBorder.none,
-            ),
-          ),
-          const SizedBox(height: 10),
-          Row(
-            children: [
-              if (isAuraMode) _buildAiBadge(),
-              const Spacer(),
-              _buildActionIcon(Icons.refresh),
-              const SizedBox(width: 12),
-              _buildActionIcon(Icons.fullscreen),
-            ],
-          ),
-        ],
+      child: TextField(
+        maxLines: 12,
+        style: const TextStyle(color: Colors.white),
+        onChanged: (val) => aiController.updateScript(val, widget.isAuraMode),
+        decoration: InputDecoration(
+          hintText: widget.isAuraMode ? "generate_text_with_ai".tr : "write_your_own_script".tr,
+          hintStyle: const TextStyle(color: Colors.white24),
+          border: InputBorder.none,
+        ),
       ),
     );
   }
@@ -95,229 +185,88 @@ class AuraScriptCreator extends StatelessWidget {
   Widget _buildStyleBox() {
     return Container(
       padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
-        borderRadius: BorderRadius.circular(24),
-        border: Border.all(color: Colors.white.withOpacity(0.1)),
-      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TextField(
-            maxLines: 6,
-            controller: isAuraMode
+            controller: widget.isAuraMode
                 ? aiController.auraStyleInputController
                 : aiController.ownStyleInputController,
-            style: const TextStyle(color: Colors.white, fontSize: 15),
-            onChanged: (val) => aiController.updateStyle(val, isAuraMode),
+            maxLines: 6,
+            style: const TextStyle(color: Colors.white),
+            onChanged: (val) => aiController.updateStyle(val, widget.isAuraMode),
             decoration: InputDecoration(
-              hintText: "Enter your own style",
-              hintStyle: TextStyle(
-                color: Colors.white.withOpacity(0.3),
-                fontSize: 14,
-              ),
+              hintText: "style".tr,
+              hintStyle: const TextStyle(color: Colors.white24),
               border: InputBorder.none,
             ),
           ),
           const SizedBox(height: 15),
           Wrap(
             spacing: 8,
-            runSpacing: 10,
-            children: [
-              _buildChip("+ calm sea", "calm sea"),
-              _buildChip("+ Cosmos", "Cosmos"),
-              _buildChip("+ male voice", "male voice"),
-              _buildChip("+ with music", "with music"),
-              _buildChip("+ without music", "without music"),
-              _buildChip("+ 5 min", "5 min"),
-              _buildChip("+ 10 min", "10 min"),
-            ],
+            runSpacing: 8,
+            children: ["calm_sea", "cosmos", "male_voice", "with_music", "without_music", "five_min", "ten_min"]
+                .map((key) => ActionChip(
+              label: Text("+ ${key.tr}", style: const TextStyle(color: Colors.white70, fontSize: 12)),
+              backgroundColor: Colors.white.withOpacity(0.05),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+              onPressed: () => aiController.addStyleChip(key.tr, widget.isAuraMode),
+            )).toList(),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildCreateButton(bool isValid) {
-    return GestureDetector(
-      onTap: isValid ? () => print("Creating...") : null,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        width: double.infinity,
-        height: 60,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
-          gradient: isValid
-              ? const LinearGradient(
-                  colors: [Color(0xFF4C65E3), Color(0xFFD75BE3)],
-                )
-              : null,
-          color: isValid ? null : const Color(0xFF2E2C3D),
-          boxShadow: isValid
-              ? [
-                  BoxShadow(
-                    color: const Color(0xFF4C65E3).withOpacity(0.3),
-                    blurRadius: 15,
-                    offset: const Offset(0, 8),
-                  ),
-                ]
-              : [
-
-          ],
-        ),
-        child: Center(
-          child: Text(
-            "Create",
-            style: TextStyle(
-              color: isValid ? Colors.white : Colors.white24,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              letterSpacing: 0.5,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-
-  Widget _buildChip(String label, String value) {
-    return GestureDetector(
-      onTap: () => aiController.addStyleChip(value, isAuraMode),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-        decoration: BoxDecoration(
-          color: Colors.white.withOpacity(0.05),
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.white.withOpacity(0.1)),
-        ),
-        child: Text(
-          label,
-          style: const TextStyle(color: Colors.white70, fontSize: 12),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildAiBadge() {
+  Widget _buildTitleInput() {
     return Container(
-      height: 40,
-      width: 216,
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        gradient: const LinearGradient(
-          colors: [Color(0xFF5B67F1), Color(0xFFC356E2)],
-        ),
-      ),
-      child: const Row(
-        crossAxisAlignment: .center,
-        mainAxisAlignment: .center,
-        children: [
-          Icon(Icons.auto_awesome, color: Colors.white, size: 20),
-          SizedBox(width: 8),
-          Center(
-            child: Text(
-              "AI Generated",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildActionIcon(IconData icon) {
-    return Container(
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Colors.white.withOpacity(0.05),
-      ),
-      child: Icon(icon, color: Colors.white54, size: 18),
-    );
-  }
-
-  AppBar _buildAppBar() {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      centerTitle: true,
-      leading: IconButton(
-        icon: const Icon(
-          Icons.arrow_back_ios_new,
-          color: Colors.white,
-          size: 20,
-        ),
-        onPressed: () => Get.back(),
-      ),
-      title: Text(
-        isAuraMode ? "Aura AI Script" : "Custom Script",
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildLabel(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12, left: 4),
-      child: Text(
-        text,
-        style: const TextStyle(
-          color: Colors.white,
-          fontSize: 18,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-    );
-  }
-
-  Widget _buildDropdownField(String text) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
-        borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: Colors.white.withOpacity(0.1)),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            text,
-            style: const TextStyle(color: Colors.white54, fontSize: 15),
-          ),
-          const Icon(Icons.keyboard_arrow_down, color: Colors.white54),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildIconTextField(IconData icon, String hint) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
-        borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: Colors.white.withOpacity(0.1)),
-      ),
+      padding: const EdgeInsets.all(16),
       child: TextField(
+        controller: audioTitleController,
         style: const TextStyle(color: Colors.white),
         decoration: InputDecoration(
-          icon: Icon(icon, color: Colors.white54, size: 20),
-          hintText: hint,
-          hintStyle: const TextStyle(color: Colors.white24, fontSize: 15),
+          icon: const Icon(Icons.music_note, color: Colors.white54),
+          hintText: "add_a_audio_title".tr,
+          hintStyle: const TextStyle(color: Colors.white24),
           border: InputBorder.none,
         ),
       ),
     );
   }
+
+  Widget _buildActionButton(String text, VoidCallback onTap, bool isValid) {
+    return InkWell(
+      onTap: isValid ? onTap : null,
+      child: Container(
+        width: double.infinity,
+        height: 60,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(30),
+          gradient: isValid ? const LinearGradient(colors: [Color(0xFF4C65E3), Color(0xFFD75BE3)]) : null,
+          color: isValid ? null : const Color(0xFF2E2C3D),
+        ),
+        child: Center(child: Text(text, style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18))),
+      ),
+    );
+  }
+
+  Widget _buildGradientWrapper({required Widget child, required double radius}) {
+    return CustomPaint(
+      painter: BoxGradientPainter(radius: radius, gradient: const LinearGradient(colors: [Color(0xFF4C65E3), Color(0xFFD75BE3)])),
+      child: child,
+    );
+  }
+}
+
+class BoxGradientPainter extends CustomPainter {
+  final double radius;
+  final Gradient gradient;
+  BoxGradientPainter({required this.radius, required this.gradient});
+  @override
+  void paint(Canvas canvas, Size size) {
+    final rect = Offset.zero & size;
+    final paint = Paint()..shader = gradient.createShader(rect)..style = PaintingStyle.stroke..strokeWidth = 1.2;
+    canvas.drawRRect(RRect.fromRectAndRadius(rect, Radius.circular(radius)), paint);
+  }
+  @override bool shouldRepaint(CustomPainter oldDelegate) => false;
 }

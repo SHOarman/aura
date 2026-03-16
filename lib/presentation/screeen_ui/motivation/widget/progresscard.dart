@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Progresscard extends StatelessWidget {
   final String title;
   final String value;
-  final Widget icon; // Ekhane ekhon jekono Widget (Icon/Image) dewa jabe
+  final Widget icon;
 
   const Progresscard({
     super.key,

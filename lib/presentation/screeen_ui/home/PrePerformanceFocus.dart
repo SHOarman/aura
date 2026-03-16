@@ -84,22 +84,24 @@ class Preperformancefocus extends StatelessWidget {
                     padding: const EdgeInsets.all(10),
                     itemCount: 6,
                     gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      mainAxisExtent: 220,
-                    ),
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                          mainAxisExtent: 220,
+                        ),
                     itemBuilder: (context, index) {
-                      return liberycard(
-                        imagepagth: 'assets/images/newaa.png',
+                      return LiberyCard(
                         title: 'mental_preparation'.tr,
                         ontap: () {
                           Get.toNamed(
                             AppRoutes.preperformancefocusdetelsscreen,
                           );
                         },
-                        titlenew: 'pre_performance_focus'.tr,
+                        imagePath: 'assets/images/new.png',
+                        subTitle: 'Pre-Performance Focus',
+                        description:
+                            'Prepare your mind before important moments.',
                       );
                     },
                   ),

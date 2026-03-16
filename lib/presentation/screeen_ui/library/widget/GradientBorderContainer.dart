@@ -4,18 +4,27 @@ class GradientBorderContainer extends StatelessWidget {
   final String title;
   final String subtitle;
   final VoidCallback onTap;
-  const GradientBorderContainer({super.key, required this.title, required this.subtitle, required this.onTap});
+
+  const GradientBorderContainer({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    required this.onTap
+  });
 
   @override
   Widget build(BuildContext context) {
-    // These are the exact colors extracted from the "Iridescent Gradient" in your image
+    // বর্ডারের জন্য ইরিডিসেন্ট কালার
     final List<Color> iridescentColors = [
-      Color(0xFF4C65E3),
-      Color(0xFFD75BE3)
-
+      const Color(0xFF4C65E3),
+      const Color(0xFFD75BE3)
     ];
 
-    const Color bgColor = Colors.transparent;
+    // আপনার কাঙ্ক্ষিত ব্যাকগ্রাউন্ড গ্রাডিয়েন্ট কালার (ডার্ক প্রিমিয়াম লুক)
+    final List<Color> bgGradientColors = [
+      const Color(0x4D1B1424), // #1B1424 with 30% opacity
+      const Color(0x26574074), // #574074 with 15% opacity
+    ];
 
     return CustomPaint(
       painter: _GradientPainter(
@@ -28,13 +37,16 @@ class GradientBorderContainer extends StatelessWidget {
         ),
       ),
       child: GestureDetector(
-        onTap: (){
-          onTap();
-        },
+        onTap: onTap,
         child: Container(
           decoration: BoxDecoration(
-            color: bgColor,
             borderRadius: BorderRadius.circular(12),
+            // ব্যাকগ্রাউন্ডে গ্রাডিয়েন্ট যোগ করা হয়েছে
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: bgGradientColors,
+            ),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
           child: Row(
@@ -44,21 +56,21 @@ class GradientBorderContainer extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                   Text(
-                   title,
-                    style: TextStyle(
+                  Text(
+                    title,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                   SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                      subtitle,
+                    subtitle,
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.5),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400
+                        color: Colors.white.withOpacity(0.5),
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400
                     ),
                   ),
                 ],

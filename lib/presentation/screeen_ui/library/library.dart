@@ -26,8 +26,21 @@ class _LibraryState extends State<Library> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              Image.asset("assets/images/image 34.png"),
-              const SizedBox(height: 12),
+              Row(
+                children: [
+                  Image.asset("assets/images/image 34.png"),
+                  const SizedBox(width: 30),
+                  Text(
+                    "library".tr,
+                    style: const TextStyle(
+                      color: Color(0xffFCFDFD),
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 30),
               Center(
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -41,8 +54,8 @@ class _LibraryState extends State<Library> {
               const SizedBox(height: 30),
               Expanded(
                 child: selectedIndex == 0
-                    ?  LibraryHistorique()
-                    :  Librarymethode(),
+                    ? const LibraryHistorique()
+                    : const Librarymethode(),
               ),
             ],
           ),
@@ -69,7 +82,7 @@ class _LibraryState extends State<Library> {
         ),
         child: Container(
           margin: const EdgeInsets.all(1.2),
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24),
             color: isSelected
@@ -79,9 +92,10 @@ class _LibraryState extends State<Library> {
           child: Center(
             child: Text(
               title,
+              textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 15,
+                fontSize: 14,
                 fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
               ),
             ),

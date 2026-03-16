@@ -39,8 +39,7 @@ class Quickmentalsessionscard extends StatelessWidget {
               colors: [
                 // Color(0x804C65E3), // #4C65E3 at 50%
                 // Color(0x33D75BE9),
-                Color(0xFF4C65E3),
-                 Color(0xFFD75BE3)
+                Color(0xFF4C65E3)..withOpacity(0.4), Color(0xFFD75BE3)..withOpacity(0.6)
                 // #D75BE3 at 20%
               ],
             ),

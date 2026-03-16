@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class Theauraframework extends StatelessWidget {
-  final String title;               // টাইটেলের জন্য
-  final List<String> bulletPoints;  // বর্ণনা বা লিস্টের জন্য
-  final String buttonText;          // বাটনের টেক্সটের জন্য
-  final VoidCallback onTap;         // বাটনে ক্লিক করলে যা হবে
+  final String title;
+  final List<String> bulletPoints;
+  final String buttonText;
+  final VoidCallback onTap;
 
   const Theauraframework({
     super.key,
     required this.title,
     required this.bulletPoints,
     required this.onTap,
-    this.buttonText = 'View Details', // ডিফল্ট টেক্সট
+    this.buttonText = 'View Details',
   });
 
   @override
@@ -32,7 +32,14 @@ class Theauraframework extends StatelessWidget {
         width: 355,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(cardRadius),
-          color: Colors.transparent,
+          gradient: const LinearGradient(
+            colors: [
+              Color(0x4D1B1424), // #1B1424 with 30% opacity (4D)
+              Color(0x26574074), // #574074 with 15% opacity (26)
+            ],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -43,25 +50,22 @@ class Theauraframework extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // কাস্টম টাইটেল
                   Text(
                     title,
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 24, // সাইজ সামান্য অ্যাডজাস্ট করা হয়েছে
+                      fontSize: 24,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
                   const SizedBox(height: 16),
 
-                  // লিস্ট ডাইনামিকভাবে তৈরি হবে
                   ...bulletPoints.map((text) => _buildBulletText(text)).toList(),
 
                   const SizedBox(height: 20),
 
-                  // কাস্টম বাটন
                   InkWell(
-                    onTap: onTap, // সরাসরি কল হবে
+                    onTap: onTap,
                     child: Text(
                       buttonText,
                       style: const TextStyle(
@@ -104,7 +108,6 @@ class Theauraframework extends StatelessWidget {
   }
 }
 
-// GradientBorderPainter আগের মতোই থাকবে...
 class GradientBorderPainter extends CustomPainter {
   final double radius;
   final double strokeWidth;

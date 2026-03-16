@@ -75,25 +75,30 @@ class Onlodaingscreen4 extends StatelessWidget {
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                           foreground: Paint()
-                            ..shader =
-                            LinearGradient(
+                            ..shader = LinearGradient(
                               colors: Appgradient.primaryGradient.colors,
                             ).createShader(
                               const Rect.fromLTWH(0.0, 0.0, 200.0, 70.0),
                             ),
                         ),
-
                       ),
 
 
-                       TextSpan(
 
-                        text: "orseparator".tr,
-                        style: TextStyle(
-                          color: Color(0xffDEDEDE),
-                          fontSize: 14,
+                      WidgetSpan(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          child: Text(
+                            "orseparator".tr,
+                            style: const TextStyle(
+                              color: Color(0xffDEDEDE),
+                              fontSize: 14,
+                            ),
+                          ),
                         ),
                       ),
+
+                      // Create Account Text
                       TextSpan(
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {

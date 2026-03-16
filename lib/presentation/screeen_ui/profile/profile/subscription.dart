@@ -1,3 +1,4 @@
+import 'package:aura/core/routes/app_routes.dart';
 import 'package:aura/presentation/screeen_ui/profile/profile/profilewidget/subscriptionCard.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,9 +17,9 @@ class SubscriptionScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
-          "Upgrade to Aura Premium",
-          style: TextStyle(
+        title: Text(
+          "Upgrade to Aura Premium".tr,
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.w600,
@@ -33,39 +34,55 @@ class SubscriptionScreen extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            // Free Trial Card
+            // 1. Free Trial Card (Index 0)
             _buildSelectableCard(
               controller,
               index: 0,
-              title: "Free trial",
+              title: "Free trial".tr,
               features: [
-                "1 AI visualization per day OR 1 total",
-                "Max duration 10-15 min",
-                "1-2 ambiences",
-                "1 standard voice",
+                "1 AI visualization per day OR 1 total".tr,
+                "Max duration 10–15 min".tr,
+                "1–2 ambiences".tr,
+                "1 standard voice".tr,
               ],
             ),
 
             const SizedBox(height: 16),
 
-            // Premium Card
+            // 2. Monthly Premium Card (Index 1) - Updated Price
             _buildSelectableCard(
               controller,
               index: 1,
-              title: "Premium",
-              price: "\$4.99",
-              discount: "Save -20%",
+              title: "Monthly".tr,
+              price: "\$9.99",
               features: [
-                "Unlimited access",
-                "30 min duration",
-                "All ambiences",
-                "Premium voices",
-                "Save + favorites + full history",
+                "Unlimited".tr,
+                "30 min".tr,
+                "All ambiences".tr,
+                "Premium voices".tr,
+                "Save + favorites + full history".tr,
+              ],
+            ),
+
+            const SizedBox(height: 16),
+
+            // 3. Annual Premium Card (Index 2) - New Plan
+            _buildSelectableCard(
+              controller,
+              index: 2,
+              title: "Annual".tr,
+              price: "\$79.99",
+              subPrice: "\$6.67/mo", // প্রদর্শনের জন্য ছোট করে নিচে দেওয়া যায়
+              discount: "Save 33%".tr, // Updated Discount
+              features: [
+                "Everything in Monthly".tr,
+                "Best Value for money".tr,
               ],
             ),
 
             const SizedBox(height: 40),
 
+            // Continue Button
             Container(
               width: double.infinity,
               height: 55,
@@ -76,7 +93,11 @@ class SubscriptionScreen extends StatelessWidget {
                 ),
               ),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+
+                  Get.toNamed(AppRoutes.home);
+                  print("Selected Plan Index: ${controller.selectedSubscription.value}");
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.transparent,
                   shadowColor: Colors.transparent,
@@ -84,9 +105,9 @@ class SubscriptionScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                   ),
                 ),
-                child: const Text(
-                  "Continue",
-                  style: TextStyle(
+                child: Text(
+                  "continue_btn".tr,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
@@ -101,13 +122,14 @@ class SubscriptionScreen extends StatelessWidget {
   }
 
   Widget _buildSelectableCard(
-    Globelcontroller controller, {
-    required int index,
-    required String title,
-    String? price,
-    String? discount,
-    required List<String> features,
-  }) {
+      Globelcontroller controller, {
+        required int index,
+        required String title,
+        String? price,
+        String? subPrice,
+        String? discount,
+        required List<String> features,
+      }) {
     return Obx(() {
       bool isSelected = controller.selectedSubscription.value == index;
       return GestureDetector(
@@ -118,13 +140,14 @@ class SubscriptionScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
             gradient: isSelected
                 ? const LinearGradient(
-                    colors: [Color(0xFF4C65E3), Color(0xFFD75BE3)],
-                  )
+              colors: [Color(0xFF4C65E3), Color(0xFFD75BE3)],
+            )
                 : null,
           ),
           child: SubscriptionCard(
             title: title,
             price: price,
+
             discount: discount,
             features: features,
             isSelected: isSelected,

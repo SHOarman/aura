@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WeeklyActivityChart extends StatelessWidget {
   const WeeklyActivityChart({super.key});
@@ -19,15 +20,19 @@ class WeeklyActivityChart extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.transparent, // Background transparent
+          color: Colors.transparent,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              "Weekly activity",
-              style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w400),
+            Text(
+              "Weekly activity".tr,
+              style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w400
+              ),
             ),
             const SizedBox(height: 20),
             Expanded(
@@ -43,7 +48,7 @@ class WeeklyActivityChart extends StatelessWidget {
 
   LineChartData mainData() {
     return LineChartData(
-      gridData: FlGridData(show: false),
+      gridData: const FlGridData(show: false),
       titlesData: FlTitlesData(
         show: true,
         rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),
@@ -63,9 +68,19 @@ class WeeklyActivityChart extends StatelessWidget {
           sideTitles: SideTitles(
             showTitles: true,
             getTitlesWidget: (value, meta) {
-              const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+              // Mapping indices to your translation keys
+              const dayKeys = [
+                'sun_single',
+                'mon_single',
+                'tue_single',
+                'wed_single',
+                'thu_single',
+                'fri_single',
+                'sat_single'
+              ];
+
               return Text(
-                days[value.toInt() % 7],
+                dayKeys[value.toInt() % 7].tr, // Translates to S, M, T, etc.
                 style: TextStyle(color: Colors.white.withOpacity(0.6), fontSize: 12),
               );
             },
@@ -111,7 +126,11 @@ class GradientPainter extends CustomPainter {
   final double radius;
   final Gradient gradient;
 
-  GradientPainter({required this.strokeWidth, required this.radius, required this.gradient});
+  GradientPainter({
+    required this.strokeWidth,
+    required this.radius,
+    required this.gradient
+  });
 
   @override
   void paint(Canvas canvas, Size size) {

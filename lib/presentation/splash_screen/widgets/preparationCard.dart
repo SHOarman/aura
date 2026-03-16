@@ -12,10 +12,10 @@ class PreparationCard extends StatelessWidget {
 
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        gradient: const LinearGradient(
+        gradient:  LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [Color(0xFF4C65E3), Color(0xFFD75BE3)],
+          colors: [Color(0xFF4C65E3)..withOpacity(0.4), Color(0xFFD75BE3)..withOpacity(0.6)],
         ),
       ),
       child: Container(

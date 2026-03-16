@@ -90,15 +90,15 @@ class Confidencereset extends StatelessWidget {
                       mainAxisExtent: 220,
                     ),
                     itemBuilder: (context, index) {
-                      return liberycard(
-                        imagepagth: 'assets/images/newaa.png',
-                        title: 'mental_preparation'.tr,
+                      return LiberyCard(
+
+                        title: 'mental_preparation\n'.tr,
                         ontap: () {
                           Get.toNamed(
                             AppRoutes.preperformancefocusdetelsscreen,
                           );
                         },
-                        titlenew: 'confidence_reset'.tr,
+                       imagePath: 'assets/images/new.png', subTitle: 'Confidence Reset', description: 'Prepare your mind before important moments.',
                       );
                     },
                   ),

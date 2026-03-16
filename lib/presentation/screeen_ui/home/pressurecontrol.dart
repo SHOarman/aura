@@ -90,15 +90,15 @@ class Pressurecontrol extends StatelessWidget {
                       mainAxisExtent: 220,
                     ),
                     itemBuilder: (context, index) {
-                      return liberycard(
-                        imagepagth: 'assets/images/newaa.png',
+                      return LiberyCard(
+
                         title: 'mental_preparation'.tr,
                         ontap: () {
                           Get.toNamed(
                             AppRoutes.pressurcontrolecard,
                           );
                         },
-                        titlenew: 'pressure_control'.tr,
+                         imagePath: 'assets/images/new.png', subTitle: 'Pressur Controller', description: 'Prepare your mind before important moments.',
                       );
                     },
                   ),

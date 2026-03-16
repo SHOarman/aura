@@ -30,7 +30,14 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> titles = ["Home", "Library", "", "Progress", "Profile"];
+    // এখানে অনুবাদ ফাইলের কী (Key) গুলো ব্যবহার করা হয়েছে
+    List<String> titles = [
+      "home".tr,
+      "library".tr,
+      "",
+      "progress".tr,
+      "profile".tr
+    ];
 
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
@@ -64,7 +71,6 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
                   width: 52,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    // color: Color(0xFF0D0219),
                   ),
                   child: Center(
                     child: SvgPicture.asset(

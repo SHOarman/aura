@@ -16,6 +16,17 @@ abstract class AppRoutes {
   //===========libary========================
   static const library = '/library';
   static const librarydetails = '/librarydetails';
+  static const librarydetails2 = '/librarydetails2';
+  static const librarydetails3 = '/librarydetails3';
+  static const librarydetails4 = '/librarydetails4';
+  static const librarydetails5 = '/librarydetails5';
+
+  static const savingscreen1 = '/savingscreen1';
+  static const savingscreen2 = '/savingscreen2';
+  static const savingscreen3 = '/savingscreen3';
+  static const savingscreen4 = '/savingscreen4';
+  static const savingscreen5 = '/savingscreen5';
+  static const savingscreen6 = '/savingscreen6';
 
 
 
@@ -59,6 +70,7 @@ static const startwithai = '/startwithai';
 static const writemyscript = '/writemyscript';
 static const createScriptScreen="/createScriptScreen";
 static const auraScriptCreator="/auraScriptCreator";
+static const aicreatemusicplayer="/aicreatemusicplayer";
 
 
 

@@ -22,7 +22,7 @@ class Joinuser extends StatelessWidget {
 
               Center(
                 child: Text(
-                  "join_millions_of_users".tr,
+                  "Begin your preparation".tr,
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 28,

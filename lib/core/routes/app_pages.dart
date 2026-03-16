@@ -12,13 +12,15 @@ import 'package:aura/presentation/screeen_ui/home/ConfidenceReset.dart';
 import 'package:aura/presentation/screeen_ui/home/PrePerformanceFocus.dart';
 import 'package:aura/presentation/screeen_ui/home/home.dart';
 import 'package:aura/presentation/screeen_ui/home/pressurecontrol.dart';
+import 'package:aura/presentation/screeen_ui/library/confidenceReinforcement.dart';
+import 'package:aura/presentation/screeen_ui/library/peakstateactivarion.dart';
+import 'package:aura/presentation/screeen_ui/library/pre_performanceRutine.dart';
 import 'package:aura/presentation/screeen_ui/motivation/motivation.dart';
 import 'package:get/get.dart';
 
 import '../../presentation/screeen_ui/home/pressurecontroldetelsscreen.dart';
-import '../../presentation/screeen_ui/home/widget/seealldata.dart';
 import '../../presentation/screeen_ui/library/library.dart';
-import '../../presentation/screeen_ui/library/vsualisation.dart';
+import '../../presentation/screeen_ui/library/pressurcontroller.dart';
 import '../../presentation/screeen_ui/musicPlayerScreen/musicPlayerScreen.dart';
 import '../../presentation/screeen_ui/profile/action.dart';
 import '../../presentation/screeen_ui/profile/profile/subscription.dart';
@@ -64,7 +66,6 @@ class AppPages {
     //====================Screen__ui========================================
     GetPage(name: AppRoutes.home, page: () => const Home(),transition: Transition.noTransition),
     // GetPage(name: AppRoutes.seealldata, page: () => const Seealldata()),
-    GetPage(name: AppRoutes.library, page: () => const Library(),transition: Transition.noTransition),
     // GetPage(name: AppRoutes.vsualisation, page: () => const Vsualisation(),transition: Transition.noTransition),
     GetPage(name: AppRoutes.motivation, page: () => const Motivation(),transition: Transition.noTransition),
     GetPage(name: AppRoutes.action, page: () => const Action(),transition: Transition.noTransition),
@@ -81,7 +82,7 @@ class AppPages {
     GetPage(name: AppRoutes.startwithai, page: () => const Startwithai()),
     GetPage(name: AppRoutes.writemyscript, page: () => const Writemyscript()),
     GetPage(name: AppRoutes.musicPlayerScreen, page: () =>  MusicPlayerScreen()),
-    GetPage(name: AppRoutes.createScriptScreen, page:()=>CreateScriptScreen()),
+    // GetPage(name: AppRoutes.createScriptScreen, page:()=>Createscriptscreen()),
     GetPage(name: AppRoutes.auraScriptCreator, page: ()=>AuraScriptCreator()),
     
     //======================homedata=======================================
@@ -89,6 +90,19 @@ class AppPages {
     GetPage(name: AppRoutes.confidencereset, page: ()=>Confidencereset()),
     GetPage(name: AppRoutes.pressurecontrol, page: ()=>Pressurecontrol()),
     GetPage(name: AppRoutes.pressurcontrolecard, page: ()=>Pressurecontroldetelsscreen()),
+
+
+    //====================library========================================
+    GetPage(name: AppRoutes.library, page: () => const Library(),transition: Transition.noTransition),
+    GetPage(name: AppRoutes.librarydetails, page: ()=>Confidencereinforcement()),
+    GetPage(name: AppRoutes.librarydetails2, page: ()=>Pressurcontroller()),
+    GetPage(name: AppRoutes.librarydetails3, page: ()=>Peakstateactivarion()),
+    GetPage(name: AppRoutes.librarydetails4, page: ()=>PrePerformancerutine()),
+
+    // GetPage(name: AppRoutes.savingscreen1, page: ()=>Savingscreen1()),
+    GetPage(name: AppRoutes.aicreatemusicplayer, page: ()=>Createscriptscreen()),
+
+
 
 
 

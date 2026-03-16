@@ -1,12 +1,9 @@
-import 'package:aura/presentation/screeen_ui/motivation/widget/Custom%20Motivation%20Card%20Widget.dart';
 import 'package:aura/presentation/screeen_ui/motivation/widget/StreakCalendar.dart';
 import 'package:aura/presentation/screeen_ui/motivation/widget/WeeklyActivityChart.dart';
 import 'package:aura/presentation/screeen_ui/motivation/widget/progresscard.dart';
 import 'package:aura/presentation/screeen_ui/screenwidgets/bottomnav_button.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
-import '../../../core/routes/app_routes.dart';
+import 'package:get/get.dart';
 
 class Motivation extends StatelessWidget {
   const Motivation({super.key});
@@ -24,50 +21,73 @@ class Motivation extends StatelessWidget {
             children: [
               const SizedBox(height: 60),
 
-              Center(
-                child: Text(
-                  "Your Porgress",
-                  style: TextStyle(
-                    color: Color(0xffFCFDFD),
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-
-              SizedBox(height: 20                                                                                                                                                                                                                                                                                                                                                                                                                                    ,),
-              //=======================progresscard================
-              
               Row(
-                mainAxisAlignment: .spaceBetween,
                 children: [
-                  Progresscard(title: "Complete Session", value: "9", icon: Image.asset("assets/images/sessison.png")),
-                  Progresscard(title: "Total minute", value: "150", icon: Image.asset("assets/images/timne.png"))
+                  Image.asset(
+                    "assets/images/image 34.png",
+                    height: 30, // Specified height for alignment
+                    width: 30,
+                  ),
+                  const SizedBox(width: 20),
+                  Expanded(
+                    child: Text(
+                      "Your Progress".tr,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: Color(0xffFCFDFD),
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
                 ],
               ),
-              SizedBox(height: 10,),
 
-              //===============activity card===================================================
+              const SizedBox(height: 20),
 
-              WeeklyActivityChart(),
-              
-              SizedBox(height: 20,),
-              //==========================current streak=================================
-              
-              StreakCalendar(weeklyData: {
+              //=======================progresscard================
+              Row(
+                children: [
+                  Expanded(
+                    child: Progresscard(
+                      title: "Complete Session".tr,
+                      value: "9",
+                      icon: Image.asset("assets/images/sessison.png"),
+                    ),
+                  ),
+                  const SizedBox(width: 12), // Space between cards
+                  Expanded(
+                    child: Progresscard(
+                      title: "Total minute".tr,
+                      value: "150",
+                      icon: Image.asset("assets/images/timne.png"),
+                    ),
+                  ),
+                ],
+              ),
 
-                14: false,
-                15: false,
-                16: false,
-                17: true,
-                18: true,
-                19: true,
-                20: true,
-              })
+              const SizedBox(height: 20),
 
+              //===============activity card==========================
+              const WeeklyActivityChart(),
 
+              const SizedBox(height: 20),
 
-              
+              //==========================current streak==============
+              StreakCalendar(
+                weeklyData: const {
+                  14: false,
+                  15: false,
+                  16: false,
+                  17: true,
+                  18: true,
+                  19: true,
+                  20: true,
+                },
+              ),
+
+              const SizedBox(height: 30),
             ],
           ),
         ),

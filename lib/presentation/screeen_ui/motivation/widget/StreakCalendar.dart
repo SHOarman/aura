@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart'; // Required for .tr extension
 
 class StreakCalendar extends StatelessWidget {
-  // Ekhane amra map nibo jekhane Tarikh (Key) ebong Active ki na (Value) thakbe
+  // Map containing Date (Key) and Active status (Value)
   final Map<int, bool> weeklyData;
-  final List<String> daysName = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+
+  // Using the translation keys you provided
+  final List<String> daysNameKeys = [
+    'sun_single',
+    'mon_single',
+    'tue_single',
+    'wed_single',
+    'thu_single',
+    'fri_single',
+    'sat_single'
+  ];
 
   StreakCalendar({
     super.key,
-    required this.weeklyData, // Udahoron: {14: false, 15: false, 16: false, 17: true...}
+    required this.weeklyData, // Example: {14: false, 15: false, 16: false, 17: true...}
   });
 
   @override
@@ -15,9 +26,9 @@ class StreakCalendar extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          "Current Streak",
-          style: TextStyle(
+        Text(
+          "current_streak".tr, // Added .tr
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 22,
             fontWeight: FontWeight.w400,
@@ -28,15 +39,16 @@ class StreakCalendar extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: List.generate(7, (index) {
             // Data processing
+            // Safely get date and status
             int date = weeklyData.keys.elementAt(index);
             bool isActive = weeklyData[date] ?? false;
-            String dayName = daysName[index];
+            String dayLabel = daysNameKeys[index].tr; // Translates to S, M, T, etc.
 
             return Column(
               children: [
-                // Din-er naam (S, M, T...)
+                // Day name translated (S, M, T...)
                 Text(
-                  dayName,
+                  dayLabel,
                   style: TextStyle(
                     color: Colors.white.withOpacity(0.5),
                     fontSize: 14,
@@ -51,13 +63,16 @@ class StreakCalendar extends StatelessWidget {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    // Active hole gradient background, na hole transparent
+                    // Active: Gradient background | Inactive: Border/Transparent
                     gradient: isActive
                         ? const LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [Color(0xFFD75BE3), Color(0xFF4C65E3)],
                     )
+                        : null,
+                    border: !isActive
+                        ? Border.all(color: Colors.white.withOpacity(0.1))
                         : null,
                   ),
                   child: Text(

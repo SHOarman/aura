@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MethodCard extends StatelessWidget {
   final VoidCallback onTap;
@@ -28,12 +29,10 @@ class MethodCard extends StatelessWidget {
         ),
       ),
       child: Container(
-        // ২. এই মার্জিনটিই মূলত বর্ডারের থিকনেস বা পুরুত্ব তৈরি করে
         margin: const EdgeInsets.all(borderWidth),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(cardRadius - borderWidth),
-          // কার্ডের ভেতরের ব্যাকগ্রাউন্ড কালার (ইমেজের মতো গাঢ় রাখতে চাইলে dark color দিন)
-          color: const Color(0xFF130E1A),
+          color: const Color(0xFF1B1424),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -44,36 +43,36 @@ class MethodCard extends StatelessWidget {
               padding: const EdgeInsets.all(24.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const [
+                children: [
                   Text(
-                    "Last Generated Session",
-                    style: TextStyle(
+                    "last_generated_session".tr,
+                    style: const TextStyle(
                       color: Colors.white70,
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                    'Pressure Control',
-                    style: TextStyle(
+                    'pressure_control'.tr,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 4),
+                  const SizedBox(height: 4),
                   Text(
-                    '10 min',
-                    style: TextStyle(
+                    'five_min'.tr,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   Text(
-                    'Generated · Guided',
-                    style: TextStyle(
+                    'generated_guided'.tr,
+                    style: const TextStyle(
                       color: Color(0xFFC7C5D1),
                       fontSize: 12,
                     ),
@@ -99,11 +98,9 @@ class MethodCard extends StatelessWidget {
                     bottomRight: Radius.circular(cardRadius),
                   ),
                   gradient: LinearGradient(
-                    // begin: Alignment.topCenter,
-                    // end: Alignment.bottomCenter,
                     colors: [
                       Color.fromRGBO(27, 20, 36, 0.6),
-                    Color.fromRGBO(87, 64, 116, 0.3)
+                      Color.fromRGBO(87, 64, 116, 0.3)
                     ],
                   ),
                 ),
@@ -123,9 +120,9 @@ class MethodCard extends StatelessWidget {
                       child: const Icon(Icons.play_arrow_rounded, color: Colors.white, size: 30),
                     ),
                     const SizedBox(width: 15),
-                    const Text(
-                      'Play Again',
-                      style: TextStyle(
+                    Text(
+                      'play_again'.tr,
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
