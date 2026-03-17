@@ -15,6 +15,7 @@ import 'package:aura/presentation/screeen_ui/home/pressurecontrol.dart';
 import 'package:aura/presentation/screeen_ui/library/confidenceReinforcement.dart';
 import 'package:aura/presentation/screeen_ui/library/peakstateactivarion.dart';
 import 'package:aura/presentation/screeen_ui/library/pre_performanceRutine.dart';
+import 'package:aura/presentation/screeen_ui/library/see_all.dart';
 import 'package:aura/presentation/screeen_ui/motivation/motivation.dart';
 import 'package:get/get.dart';
 
@@ -98,6 +99,7 @@ class AppPages {
     GetPage(name: AppRoutes.librarydetails2, page: ()=>Pressurcontroller()),
     GetPage(name: AppRoutes.librarydetails3, page: ()=>Peakstateactivarion()),
     GetPage(name: AppRoutes.librarydetails4, page: ()=>PrePerformancerutine()),
+    GetPage(name: AppRoutes.seealldata, page: ()=>SeeAll()),
 
     // GetPage(name: AppRoutes.savingscreen1, page: ()=>Savingscreen1()),
     GetPage(name: AppRoutes.aicreatemusicplayer, page: ()=>Createscriptscreen()),

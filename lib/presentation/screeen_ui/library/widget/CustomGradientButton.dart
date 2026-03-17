@@ -15,15 +15,14 @@ class CustomGradientButton extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        // আপনার দেওয়া সাইজ অনুযায়ী ৩২৮ x ৬২ এর কাছাকাছি উইডথ ও হাইট
         width: double.infinity,
         height: 62,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(50), // পুরোপুরি রাউন্ড শেপ
+          borderRadius: BorderRadius.circular(50),
           gradient: const LinearGradient(
             colors: [
-              Color(0xFF4C65E3), // শুরু হবে এই কালার দিয়ে
-              Color(0xFFD75BE3), // শেষ হবে এই কালার দিয়ে
+              Color(0xFF4C65E3),
+              Color(0xFFD75BE3),
             ],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
@@ -38,7 +37,7 @@ class CustomGradientButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(
-              Icons.play_arrow_rounded, // Play আইকন
+              Icons.play_arrow_rounded,
               color: Colors.white,
               size: 30,
             ),

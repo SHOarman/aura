@@ -28,6 +28,8 @@ abstract class AppRoutes {
   static const savingscreen5 = '/savingscreen5';
   static const savingscreen6 = '/savingscreen6';
 
+  static const seealldata = '/seealldata';
+
 
 
 
@@ -49,7 +51,6 @@ static const pressurcontrolecard="/pressurcontrolecard";
 
 
 
-static const seealldata='/seealldata';
 static const vsualisation = '/library';
 static const motivation = '/motivation';
 static const action = '/profile';

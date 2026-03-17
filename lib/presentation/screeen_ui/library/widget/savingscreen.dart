@@ -1,3 +1,4 @@
+import 'package:aura/core/routes/app_routes.dart';
 import 'package:aura/presentation/splash_screen/widgets/gradientdotIcon.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,7 +53,9 @@ class Savingscreen extends StatelessWidget {
                           color: Colors.white,
                           size: 18,
                         ),
-                        onPressed: () => Get.back(),
+                        onPressed: () {
+                          Get.toNamed(AppRoutes.home);
+                        },
                       ),
                     ),
                     Obx(() {

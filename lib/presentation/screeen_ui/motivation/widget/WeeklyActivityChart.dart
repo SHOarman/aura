@@ -70,13 +70,13 @@ class WeeklyActivityChart extends StatelessWidget {
             getTitlesWidget: (value, meta) {
               // Mapping indices to your translation keys
               const dayKeys = [
-                'sun_single',
-                'mon_single',
-                'tue_single',
-                'wed_single',
-                'thu_single',
-                'fri_single',
-                'sat_single'
+                'sun',
+                'mon',
+                'tue',
+                'wed',
+                'thu',
+                'fri',
+                'sat'
               ];
 
               return Text(

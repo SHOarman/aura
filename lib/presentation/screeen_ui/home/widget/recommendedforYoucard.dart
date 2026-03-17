@@ -1,4 +1,3 @@
-import 'package:aura/core/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -41,40 +40,39 @@ class _RecommendedforyoucardState extends State<Recommendedforyoucard> {
       color: popupBgColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: const Color(0xFF574074), width: 0.5),
+        side: const BorderSide(color: Color(0xFF574074), width: 0.5),
       ),
       items: [
         PopupMenuItem(
-          value: 'favorite',
+          value: 'favorite'.tr,
           child: Row(
             children: [
               Icon(
                 isFavorite ? Icons.favorite : Icons.favorite_border,
                 color: isFavorite ? Colors.redAccent : Colors.white,
-                // color: isFavorite ? Colors.green : Colors.white70,
                 size: 20,
               ),
               const SizedBox(width: 10),
-              const Text(
-                "Add to favorite",
+               Text(
+                "Add to favorite".tr,
                 style: TextStyle(color: Colors.white),
               ),
             ],
           ),
         ),
         PopupMenuItem(
-          value: 'delete',
+          value: 'Add to favorite'.tr,
           child: Row(
-            children: const [
+            children:  [
               Icon(Icons.delete_outline, color: Colors.redAccent, size: 20),
-              const SizedBox(width: 10),
-              Text("Delete", style: TextStyle(color: Colors.redAccent)),
+              SizedBox(width: 10),
+              Text("Delete".tr, style: TextStyle(color: Colors.redAccent)),
             ],
           ),
         ),
       ],
     ).then((value) {
-      if (value == 'favorite') {
+      if (value == 'favorite'.tr) {
         setState(() {
           isFavorite = !isFavorite;
         });
@@ -85,115 +83,128 @@ class _RecommendedforyoucardState extends State<Recommendedforyoucard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Get.toNamed(AppRoutes.preperformancefocusdetelsscreen),
+      onTap: widget.onTap,
       child: Container(
-        padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.only(bottom: 10),
         decoration: BoxDecoration(
-          color: Colors.transparent,
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: Colors.white.withOpacity(0.1)),
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFFD75BE3),
+              Color(0xFF4C65E3),
+            ],
+          ),
         ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    widget.imagePath,
-                    width: 84,
-                    height: 84,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Positioned(
-                  bottom: 6,
-                  left: 6,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.4),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        const Icon(
-                          Icons.play_arrow,
-                          color: Colors.white,
-                          size: 14,
-                        ),
-                        const SizedBox(width: 4),
-                        Text(
-                          widget.duration,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 10,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+        child: Container(
+          margin: const EdgeInsets.all(1),
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            color: const Color(0xFF1B1424),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Stack(
+                alignment: Alignment.bottomCenter,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        widget.category,
-                        style: TextStyle(
-                          color: Colors.white.withOpacity(0.6),
-                          fontSize: 14,
-                        ),
-                      ),
-                      GestureDetector(
-                        onTapDown: (details) =>
-                            _showCustomMenu(context, details),
-                        child: const Icon(
-                          Icons.more_horiz,
-                          color: Colors.white70,
-                          size: 24,
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    widget.title,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Image.asset(
+                      widget.imagePath,
+                      width: 84,
+                      height: 84,
+                      fit: BoxFit.cover,
                     ),
                   ),
-                  const SizedBox(height: 2),
-                  Text(
-                    widget.subTitle,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      color: Color(0xffF0F0F0),
-                      fontSize: 13,
+                  Positioned(
+                    bottom: 6,
+                    left: 6,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 8,
+                        vertical: 4,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.4),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(
+                            Icons.play_arrow,
+                            color: Colors.white,
+                            size: 14,
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            widget.duration,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
               ),
-            ),
-          ],
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          widget.category,
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.6),
+                            fontSize: 14,
+                          ),
+                        ),
+                        GestureDetector(
+                          onTapDown: (details) =>
+                              _showCustomMenu(context, details),
+                          child: const Icon(
+                            Icons.more_horiz,
+                            color: Colors.white70,
+                            size: 24,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      widget.title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      widget.subTitle,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        color: Color(0xffF0F0F0),
+                        fontSize: 13,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

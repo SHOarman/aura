@@ -72,8 +72,8 @@ class SubscriptionScreen extends StatelessWidget {
               index: 2,
               title: "Annual".tr,
               price: "\$79.99",
-              subPrice: "\$6.67/mo", // প্রদর্শনের জন্য ছোট করে নিচে দেওয়া যায়
-              discount: "Save 33%".tr, // Updated Discount
+              subPrice: "\$6.67/mo",
+              discount: "Save 33%".tr,
               features: [
                 "Everything in Monthly".tr,
                 "Best Value for money".tr,
