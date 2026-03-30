@@ -1,7 +1,7 @@
-import 'package:aura/core/routes/app_routes.dart';
-import 'package:aura/globelwidgets/custombutton.dart';
-import 'package:aura/presentation/authscreen/widget/customtextfeild.dart';
-import 'package:aura/unity/appcolors/appcolors.dart';
+import 'package:concentrao/core/routes/app_routes.dart';
+import 'package:concentrao/globelwidgets/custombutton.dart';
+import 'package:concentrao/presentation/authscreen/widget/customtextfeild.dart';
+import 'package:concentrao/unity/appcolors/appcolors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -67,7 +67,7 @@ class Login extends StatelessWidget {
                   Get.toNamed(AppRoutes.forgotpassword);
                 },
                 child: Text(
-                  "forgotten_password".tr,
+                  "Forgot password".tr,
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
@@ -90,7 +90,7 @@ class Login extends StatelessWidget {
 
               Center(
                 child: Text(
-                  "new_to_aura".tr,
+                  "new_to_concentrao".tr,
                   style: const TextStyle(
                     color: Color(0xffEBEBEB),
                     fontSize: 14,

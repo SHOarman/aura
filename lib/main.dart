@@ -26,7 +26,7 @@
 //       useInheritedMediaQuery: true,
 //       locale: DevicePreview.locale(context),
 //       builder: DevicePreview.appBuilder,
-//       title: 'Aura',
+//       title: 'Concentrao',
 //       debugShowCheckedModeBanner: false,
 //       theme: ThemeData(
 //         brightness: Brightness.dark,
@@ -42,13 +42,10 @@
 //   }
 // }
 
-
-
-
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:get/get.dart'; // GetX-er full package import korun
+import 'package:get/get.dart';
 
 import 'core/dependency_injection/injection.dart';
 import 'core/multiplelanguage/apptransltions.dart';
@@ -56,12 +53,13 @@ import 'core/routes/app_pages.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+
   DependencyInjection.bindings();
 
   runApp(
     DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => const MyApp(),
+        enabled: !kReleaseMode,
+        builder: (context) => const MyApp()
     ),
   );
 }
@@ -72,10 +70,24 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      translations: AppTranslations(),
+      title: 'Concentrao',
+      debugShowCheckedModeBanner: false,
 
-      locale: DevicePreview.locale(context) ?? const Locale('en', 'US'),
+      translations: AppTranslations(),
+      locale: const Locale('en', 'US'),
       fallbackLocale: const Locale('en', 'US'),
+
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.transparent,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
+      ),
+
+      initialRoute: AppPages.initial,
+      getPages: AppPages.routes,
 
       useInheritedMediaQuery: true,
       builder: (context, child) {
@@ -96,19 +108,6 @@ class MyApp extends StatelessWidget {
           ),
         );
       },
-
-      title: 'Aura',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        brightness: Brightness.dark,
-        scaffoldBackgroundColor: Colors.transparent,
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-        ),
-      ),
-      initialRoute: AppPages.initial,
-      getPages: AppPages.routes,
     );
   }
 }

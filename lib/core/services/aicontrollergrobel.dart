@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AiControllerGlobal extends GetxController {
-  // --- Aura Script Mode Variables ---
-  var auraScriptText = ''.obs;
-  var auraStyleText = ''.obs;
-  final TextEditingController auraStyleInputController = TextEditingController();
+  // --- Concentrao Script Mode Variables ---
+  var concentraoScriptText = ''.obs;
+  var concentraoStyleText = ''.obs;
+  final TextEditingController concentraoStyleInputController = TextEditingController();
 
   // --- Write Own Script Mode Variables ---
   var ownScriptText = ''.obs;
@@ -13,23 +13,29 @@ class AiControllerGlobal extends GetxController {
   final TextEditingController ownStyleInputController = TextEditingController();
 
   // validation getters
-  bool get isAuraFormValid => auraScriptText.value.trim().isNotEmpty && auraStyleText.value.trim().isNotEmpty;
+  bool get isConcentraoFormValid => concentraoScriptText.value.trim().isNotEmpty && concentraoStyleText.value.trim().isNotEmpty;
   bool get isOwnFormValid => ownScriptText.value.trim().isNotEmpty && ownStyleText.value.trim().isNotEmpty;
 
   // Generic Update Methods based on mode
-  void updateScript(String val, bool isAuraMode) {
-    if (isAuraMode) auraScriptText.value = val;
-    else ownScriptText.value = val;
+  void updateScript(String val, bool isConcentraoMode) {
+    if (isConcentraoMode) {
+      concentraoScriptText.value = val;
+    } else {
+      ownScriptText.value = val;
+    }
   }
 
-  void updateStyle(String val, bool isAuraMode) {
-    if (isAuraMode) auraStyleText.value = val;
-    else ownStyleText.value = val;
+  void updateStyle(String val, bool isConcentraoMode) {
+    if (isConcentraoMode) {
+      concentraoStyleText.value = val;
+    } else {
+      ownStyleText.value = val;
+    }
   }
 
-  void addStyleChip(String chipValue, bool isAuraMode) {
-    if (isAuraMode) {
-      _updateText(auraStyleText, auraStyleInputController, chipValue);
+  void addStyleChip(String chipValue, bool isConcentraoMode) {
+    if (isConcentraoMode) {
+      _updateText(concentraoStyleText, concentraoStyleInputController, chipValue);
     } else {
       _updateText(ownStyleText, ownStyleInputController, chipValue);
     }
@@ -49,7 +55,7 @@ class AiControllerGlobal extends GetxController {
 
   @override
   void onClose() {
-    auraStyleInputController.dispose();
+    concentraoStyleInputController.dispose();
     ownStyleInputController.dispose();
     super.onClose();
   }

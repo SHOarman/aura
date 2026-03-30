@@ -4,16 +4,20 @@ class AppTranslations extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
     'en_US': {
+      'Concentro':'Concentro  Methods',
       'onboarding_title_1':
-          'Before every defining moment,\nthere is preparation.',
+      'Before every defining moment,\nthere is preparation.',
       'onboarding_subtitle_1': 'The difference is built in advance.',
       'continue_btn': 'Continue',
+      'start_btn': 'Start',
+      'next_btn': 'Next',
+      'language': 'Language',
       'prep_starts': 'Preparation starts now.',
       'quick_sessions': 'Quick Mental Sessions',
-      'auraismental': 'Aura is mental',
+      'concentraoismental': 'Concentrao is mental',
       'notmeditation': 'Not meditation',
       'preparation': 'Preparation',
-      'aura_mental_performance': 'Aura is mental performance training',
+      'concentrao_mental_performance': 'Concentrao is mental performance training',
       'what_preparing_for': 'What are you preparing for?',
       'athletic_performance': 'Athletic Performance',
       'perform_clarity_composure': 'Perform with clarity and composure',
@@ -24,7 +28,7 @@ class AppTranslations extends Translations {
       'personal_mastery': 'Personal Mastery',
       'build_discipline_resilience': 'Build discipline and mental resilience',
       'answer_helps_personalize':
-          'Your Answer Helps Aura Personalize Your Session',
+          'Train your mind like you train your body.\n Focus. Control. Execution.',
       //==========================unde all use============================================
       'edge_begins_within': 'The Edge Begins Within',
       'begin_your_preparation': 'Begin your preparation',
@@ -55,7 +59,7 @@ class AppTranslations extends Translations {
       'already_have_account': 'Already have an account?',
       'login': 'Login',
       'forgotten_password': 'Forgotten password?',
-      'new_to_aura': 'New to Aura?',
+      'new_to_concentrao': 'New to Concentrao?',
       'reset_password': 'Reset password',
       'code': 'Code',
       'send_code': 'Send code',
@@ -79,7 +83,7 @@ class AppTranslations extends Translations {
       'saved_sessions': 'Saved Sessions',
       'soccer_tournament_focus': 'Soccer Tournament Focus',
       'peak_activation': 'Peak Activation - Training',
-      'the_aura_framework': 'The Aura Framework',
+      'the_concentrao_framework': 'The Concentrao Framework',
       'pre_performance_routine': 'Pre-Performance Routine',
       'prepare_specific_event': 'Prepare for a specific event',
       'reduce_uncertainty': 'Reduce uncertainty',
@@ -131,7 +135,7 @@ class AppTranslations extends Translations {
       'peak_state_activation': 'Peak State Activation',
       'get_ready_to_perform': 'Get ready to perform',
       'reach_high_performance':
-          'To reach a high performance state, Aura guides you through a series of key steps that optimize energy while channeling focus towards the goal.',
+          'To reach a high performance state, Concentrao guides you through a series of key steps that optimize energy while channeling focus towards the goal.',
       'activation_phases': 'Activation Phases',
       'energize': 'Energize',
       'wake_body_up':
@@ -144,7 +148,7 @@ class AppTranslations extends Translations {
       'visualize_success_focus':
           'Visualize success, focusing on the goal to be reached. Let determination steer your actions in a clear objective.',
       'optimal_performance_routine':
-          'Based on research into optimal performance, Aura recommends a structured mental routine to prepare the mind ahead of high-stakes events.',
+          'Based on research into optimal performance, Concentrao recommends a structured mental routine to prepare the mind ahead of high-stakes events.',
       'preparation_steps': 'Preparation Steps',
       'ground': 'Ground',
       'sit_comfortably': 'Sit comfortably.',
@@ -155,13 +159,13 @@ class AppTranslations extends Translations {
       'direct_energy_powards_task': 'Direct this energy powards tho task.',
       'visualize_success_madane':
           'Visualize success, focusing on the goal tpite madane. Let execntine-with steer your action tonwdet to cler objective.',
-      'popular_on_aura': 'Popular on Aura',
+      'popular_on_concentrao': 'Popular on Concentrao',
       'my_creation': 'My Creation',
       'creation_audio': 'Creation audio',
       'let_ai_create_visualization': 'Let AI create my visualization',
       'describe_goal_ai_generates':
           'Describe your goal and the AI generates immersive mental coaching with audio',
-      'guide_by_aura': 'Guide by Aura',
+      'guide_by_concentrao': 'Guide by Concentrao',
       'write_own_visualization': 'Write my own visualization',
       'write_text_ai_transforms_audio':
           'Write your text and AI transforms it into audio',
@@ -175,12 +179,12 @@ class AppTranslations extends Translations {
       'with_music': 'with music',
       'without_music': 'without music',
       'male_voice': 'male voice',
-      'select_your_categroy': 'Select your categroy',
-      'add_a_audio_title': 'Add a audio title',
+      'select_your_category': 'Select your category',
+      'add_an_audio_title': 'Add an audio title',
       'generate_text_with_ai': 'Generate text with AI',
       'your_progress': 'Your progress',
       'complete_session': 'Complete Session',
-      'total_minute': 'Total minute',
+      'total_minutes': 'Total minutes',
       'weekly_activity': 'Weekly activity',
       'sun': 'Sun',
       'mon': 'Mon',
@@ -215,8 +219,8 @@ class AppTranslations extends Translations {
       "logout": "Logout",
       'Creation audio': 'Creation audio',
       'Your Progress': 'Your progress',
-      'Complete Session': 'Complete Session',
-      'Total minute': 'Total minute',
+      'Complete Session': 'Sessions completed',
+      'Total minute': 'Total minutes',
       'Weekly activity': 'Weekly activity',
       'Sun': 'Sun',
       'Mon': 'Mon',
@@ -237,9 +241,10 @@ class AppTranslations extends Translations {
       'Premium voices': 'Premium voices',
       'Save + favorites + full history': 'Save + favorites + full history',
       'Save -20%': 'Save -20%',
-      'Upgrade to Aura Premium': 'Upgrade to Aura Premium',
+      'Upgrade to Concentrao Premium': 'Upgrade to Concentrao Premium',
       'Free trial': 'Free trial',
-      '1 AI visualization per day OR 1 total': '1 AI visualization per day OR 1 total',
+      '1 AI visualization per day OR 1 total':
+          '1 AI visualization per day OR 1 total',
       'Max duration 10–15 min': 'Max duration 10–15 min',
       '1–2 ambiences': '1–2 ambiences',
       '1 standard voice': '1 standard voice',
@@ -248,15 +253,18 @@ class AppTranslations extends Translations {
       'Soccer Tournament Focus': 'Soccer Tournament Focus',
       'Play': 'Play',
       'Let AI create my visualization': 'Let AI create my visualization',
-      'Describe your goal and the AI generates immersive mental coaching with audio': 'Describe your goal and the AI generates immersive mental coaching with audio',
-      'Guide by Aura': 'Guide by Aura',
+      'Describe your goal and the AI generates immersive mental coaching with audio':
+          'Describe your goal and the AI generates immersive mental coaching with audio',
+      'Guide by Concentrao': 'Guide by Concentrao',
       'Write my own visualization': 'Write my own visualization',
-      'Write your text and AI transforms it into audio': 'Write your text and AI transforms it into audio',
+      'Write your text and AI transforms it into audio':
+          'Write your text and AI transforms it into audio',
       'Write your own Script': 'Write your own Script',
       'Begin your preparation': 'Begin your preparation',
       'Premium': 'Premium',
       "10 min · Custom": "10 min · Custom",
-      'Prepare your mind before important moments.': 'Prepare your mind before important moments.',
+      'Prepare your mind before important moments.':
+          'Prepare your mind before important moments.',
       'My Creation': 'My Creation',
       'See all': 'See all',
       'See All': 'See All',
@@ -264,7 +272,7 @@ class AppTranslations extends Translations {
       'Add to favorite': 'Add to favorite',
       'Delete': 'Delete',
       'Calm Sea': 'Calm Sea',
-      'Crafting your preparation...': 'Crafting your preparation...',
+      'Building your mental rehearsal…': 'Building your mental rehearsal…',
       'Monthly': 'Monthly',
       'Annual': 'Annual',
       'Save': 'Save',
@@ -272,25 +280,27 @@ class AppTranslations extends Translations {
       'mo': 'mo',
       'Best Value for money': 'Best Value for money',
       'Save 33%': 'Save 33%',
-
-
-
+      'but preparationn': 'but preparation',
+      'Trainyourmind':
+          'Train your mind like you train your body. Focus. Control. Execution.',
 
       //===================================================================french===================================================================
+
+
+
+
     },
     'fr_FR': {
-
-
       'onboarding_title_1':
           'Avant chaque moment décisif,\nil y a la préparation.',
       'onboarding_subtitle_1': 'La différence se construit à l\'avance.',
       'continue_btn': 'Continuer',
       'prep_starts': 'La préparation commence maintenant.',
       'quick_sessions': 'Sessions Mentales Rapides',
-      'auraismental': 'L\'aura est mentale',
+      'concentraoismental': 'L\'concentrao est mentale',
       'notmeditation': 'Pas de méditation',
-      'aura_mental_performance':
-          'Aura est l\'entraînement mental de performance',
+      'concentrao_mental_performance':
+          'Concentrao est l\'entraînement mental de performance',
       'what_preparing_for': 'Pour quoi préparez-vous?',
       'athletic_performance': 'Performance Athlétique',
       'perform_clarity_composure': 'Performez avec clarté et sérénité',
@@ -303,7 +313,7 @@ class AppTranslations extends Translations {
       'build_discipline_resilience':
           'Développez la discipline et la résilience mentale',
       'answer_helps_personalize':
-          'Votre réponse aide Aura à personnaliser votre session',
+          'Entraînez votre esprit comme vous entraînez votre corps.\n Focus. Contrôle. Exécution.',
       'edge_begins_within': 'L\'avantage commence de l\'intérieur',
       'begin_your_preparation': 'Commencez votre préparation',
       'preparation_starts_now': 'La préparation commence maintenant',
@@ -335,7 +345,7 @@ class AppTranslations extends Translations {
       'already_have_account': 'Vous avez déjà un compte ?',
       'login': 'Connexion',
       'forgotten_password': 'Mot de passe oublié ?',
-      'new_to_aura': 'Nouveau sur Aura ?',
+      'new_to_concentrao': 'Nouveau sur Concentrao ?',
       'reset_password': 'Réinitialiser le mot de passe',
       'code': 'Code',
       'send_code': 'Envoyer le code',
@@ -359,7 +369,7 @@ class AppTranslations extends Translations {
       'saved_sessions': 'Sessions sauvegardées',
       'soccer_tournament_focus': 'Focus pour le tournoi de football',
       'peak_activation': 'Activation maximale - Entraînement',
-      'the_aura_framework': 'Le Cadre Aura',
+      'the_concentrao_framework': 'Le Cadre Concentrao',
       'pre_performance_routine': 'Routine Pré-Performance',
       'prepare_specific_event': 'Préparer un évènement précis',
       'reduce_uncertainty': 'Réduire l\'incertitude',
@@ -412,7 +422,7 @@ class AppTranslations extends Translations {
       'peak_state_activation': "Activation de l'État de Performance Optimale",
       'get_ready_to_perform': 'Préparez-vous à performer',
       'reach_high_performance':
-          'Pour atteindre un état de haute performance, Aura vous guide à travers une série d\'étapes clés qui optimisent l\'énergie tout en canalisant la concentration vers l\'objectif.',
+          'Pour atteindre un état de haute performance, Concentrao vous guide à travers une série d\'étapes clés qui optimisent l\'énergie tout en canalisant la concentration vers l\'objectif.',
       'activation_phases': 'Phases d\'Activation',
       'energize': 'Énergiser',
       'wake_body_up':
@@ -425,7 +435,7 @@ class AppTranslations extends Translations {
       'visualize_success_focus':
           'Visualisez le succès, en vous concentrant sur l\'objectif à atteindre. Laissez la détermination guider vos actions vers un objectif clair.',
       'optimal_performance_routine':
-          'Basé sur la recherche sur la performance optimale, Aura recommande une routine mentale structurée pour préparer l\'esprit avant des événements à fort enjeu.',
+          'Basé sur la recherche sur la performance optimale, Concentrao recommande une routine mentale structurée pour préparer l\'esprit avant des événements à fort enjeu.',
       'preparation_steps': 'Étapes de Préparation',
       'ground': 'S\'ancrer',
       'sit_comfortably': 'Asseyez-vous confortablement.',
@@ -436,13 +446,13 @@ class AppTranslations extends Translations {
       'direct_energy_powards_task': 'Dirigez cette énergie vers la tâche.',
       'visualize_success_madane':
           'Visualisez le succès, en vous concentrant sur l\'objectif à atteindre. Laissez l\'exécution vous guider vers un objectif clair.',
-      'popular_on_aura': 'Populaire sur Aura',
+      'popular_on_concentrao': 'Populaire sur Concentrao',
       'my_creation': 'Ma Création',
       'creation_audio': 'Création audio',
       'let_ai_create_visualization': 'Laisser l\'IA créer ma visualisation',
       'describe_goal_ai_generates':
           'Décrivez votre objectif et l\'IA génère un coaching mental immersif avec audio',
-      'guide_by_aura': 'Guidé par Aura',
+      'guide_by_concentrao': 'Guidé par Concentrao',
       'write_own_visualization': 'Écrire ma propre visualisation',
       'write_text_ai_transforms_audio':
           'Écrivez votre texte et l\'IA le transforme en audio',
@@ -456,12 +466,12 @@ class AppTranslations extends Translations {
       'with_music': 'avec musique',
       'without_music': 'sans musique',
       'male_voice': 'voix d\'homme',
-      'select_your_categroy': 'Sélectionnez votre catégorie',
-      'add_a_audio_title': 'Ajouter un titre audio',
+      'select_your_category': 'Sélectionnez votre catégorie',
+      'add_an_audio_title': 'Ajouter un titre audio',
       'generate_text_with_ai': 'Générer du texte avec l\'IA',
       'your_progress': 'Votre progression',
       'complete_session': 'Session Terminée',
-      'total_minute': 'Minute totale',
+      'total_minutes': 'Minutes totales',
       'weekly_activity': 'Activité hebdomadaire',
       'sun': 'Dim',
       'mon': 'Lun',
@@ -497,7 +507,7 @@ class AppTranslations extends Translations {
       'Creation audio': 'Création audio',
       'Your Progress': 'Votre progression',
       'Complete Session': 'Session Terminée',
-      'Total minute': 'Minute totale',
+      'Total minute': 'Minutes totales',
       'Weekly activity': 'Activité hebdomadaire',
       'Sun': 'Dim',
       'Mon': 'Lun',
@@ -516,11 +526,13 @@ class AppTranslations extends Translations {
       '30 min': '30 min',
       'All ambiences': 'Toutes les ambiances',
       'Premium voices': 'Voix premium',
-      'Save + favorites + full history': 'Sauvegardes + favoris + historique complet',
+      'Save + favorites + full history':
+          'Sauvegardes + favoris + historique complet',
       'Save -20%': 'Économisez -20 %',
-      'Upgrade to Aura Premium': 'Passer à Aura Premium',
+      'Upgrade to Concentrao Premium': 'Passer à Concentrao Premium',
       'Free trial': 'Essai gratuit',
-      '1 AI visualization per day OR 1 total': '1 visualisation IA par jour OU 1 au total',
+      '1 AI visualization per day OR 1 total':
+          '1 visualisation IA par jour OU 1 au total',
       'Max duration 10–15 min': 'Durée maximale 10-15 min',
       '1–2 ambiences': '1-2 ambiances',
       '1 standard voice': '1 voix standard',
@@ -529,15 +541,18 @@ class AppTranslations extends Translations {
       'Soccer Tournament Focus': 'Focus sur le tournoi de football',
       'Play': 'Jouer',
       'Let AI create my visualization': 'Laisser l\'IA créer ma visualisation',
-      'Describe your goal and the AI generates immersive mental coaching with audio': 'Décrivez votre objectif et l\'IA génère un coaching mental immersif avec audio',
-      'Guide by Aura': 'Guidé par Aura',
+      'Describe your goal and the AI generates immersive mental coaching with audio':
+          'Décrivez votre objectif et l\'IA génère un coaching mental immersif avec audio',
+      'Guide by Concentrao': 'Guidé par Concentrao',
       'Write my own visualization': 'Écrire ma propre visualisation',
-      'Write your text and AI transforms it into audio': 'Écrivez votre texte et l\'IA le transforme en audio',
+      'Write your text and AI transforms it into audio':
+          'Écrivez votre texte et l\'IA le transforme en audio',
       'Write your own Script': 'Écrivez votre propre Script',
       'Begin your preparation': 'Commencez votre préparation',
       'Premium': 'Premium',
       "10 min · Custom": "10 min · Personnalisé",
-      'Prepare your mind before important moments.': 'Préparez votre esprit avant les moments importants.',
+      'Prepare your mind before important moments.':
+          'Préparez votre esprit avant les moments importants.',
       'My Creation': 'Ma Création',
       'See all': 'Tout voir',
       'See All': 'Tout voir',
@@ -545,7 +560,7 @@ class AppTranslations extends Translations {
       'Add to favorite': 'Ajouter aux favoris',
       'Delete': 'Supprimer',
       'Calm Sea': 'Mer calme',
-      'Crafting your preparation...': 'Préparation en cours...',
+      'Building your mental rehearsal…': 'Construction de votre répétition mentale…',
       'Monthly': 'Mensuel',
       'Annual': 'Annuel',
       'Save': 'Enregistrer',
@@ -553,7 +568,12 @@ class AppTranslations extends Translations {
       'mo': '/ mois',
       'Best Value for money': 'Meilleur rapport qualité-prix',
       'Save 33%': 'Économisez 33 %',
-
+      'but preparationn': 'mais préparation',
+      'Trainyourmind':
+          'Entraînez votre esprit comme vous entraînez votre corps. Concentrez-vous. Contrôlez. Exécutez.',
+      'start_btn': 'Commencer',
+      'next_btn': 'Suivant',
+      'language': 'Langue',
     },
   };
 }

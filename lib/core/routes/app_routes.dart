@@ -3,14 +3,13 @@ abstract class AppRoutes {
 
   //==========================================Splash Screen==================================
   static const splash = '/splash';
-  static const onlodingscreen = '/onlodingscreen';
-  static const onlodaingscreen2 = '/onlodaingscreen2';
-  static const onlodaingscreen3 = '/onlodaingscreen3';
-  static const onlodaingscreen4 = '/onlodaingscreen4';
-  static const onlodaingscreen5 = '/onlodaingscreen5';
-  static const onlodaingscreen6 = '/onlodaingscreen6';
-  static const onlodaingscreen7 = '/onlodaingscreen7';
-  static const preperformancefocusdetelsscreen = '/preperformancefocusdetelsscreen';
+  static const onboardingScreen1 = '/onboarding_screen_1';
+  static const onboardingScreen2 = '/onboarding_screen_2';
+  static const onboardingScreen3 = '/onboarding_screen_3';
+  static const onboardingScreen4 = '/onboarding_screen_4';
+  static const onboardingScreen5 = '/onboarding_screen_5';
+  static const onboardingScreen6 = '/onboarding_screen_6';
+  static const prePerformanceFocusDetailsScreen = '/prePerformanceFocusDetailsScreen';
 
 
   //===========libary========================
@@ -21,12 +20,12 @@ abstract class AppRoutes {
   static const librarydetails4 = '/librarydetails4';
   static const librarydetails5 = '/librarydetails5';
 
-  static const savingscreen1 = '/savingscreen1';
-  static const savingscreen2 = '/savingscreen2';
-  static const savingscreen3 = '/savingscreen3';
-  static const savingscreen4 = '/savingscreen4';
-  static const savingscreen5 = '/savingscreen5';
-  static const savingscreen6 = '/savingscreen6';
+  static const savingScreen1 = '/SavingScreen1';
+  static const savingScreen2 = '/SavingScreen2';
+  static const savingScreen3 = '/SavingScreen3';
+  static const savingScreen4 = '/SavingScreen4';
+  static const savingScreen5 = '/SavingScreen5';
+  static const savingScreen6 = '/SavingScreen6';
 
   static const seealldata = '/seealldata';
 
@@ -34,7 +33,7 @@ abstract class AppRoutes {
 
 
 
-  static const joinuser  = '/joinuser';
+  static const joinUser  = '/JoinUser';
   static const login = '/login';
   static const forgotpassword = '/forgotpassword';
  static const singup = '/singup';
@@ -43,10 +42,10 @@ abstract class AppRoutes {
   //====================Screen__ui========================================
 //==================homesecation=============================
 static const home = '/home';
-static const preperformanceFocus="/preperformanceFocus";
-static const confidencereset="/confidencereset";
-static const pressurecontrol="/pressurecontrol";
-static const pressurcontrolecard="/pressurcontrolecard";
+static const prePerformanceFocus = '/prePerformanceFocus';
+static const confidenceReset = '/confidenceReset';
+static const pressureControl = '/pressureControl';
+static const pressureControlDetailsCard = '/pressureControlDetailsCard';
 
 
 
@@ -62,6 +61,8 @@ static const musicPlayerScreen = '/musicPlayerScreen';
 
 static const profile = '/action';
 static const subcription = '/subcription';
+static const editProfile = '/editProfile';
+static const saveProfile = '/saveProfile';
 
 
 
@@ -70,7 +71,7 @@ static const subcription = '/subcription';
 static const startwithai = '/startwithai';
 static const writemyscript = '/writemyscript';
 static const createScriptScreen="/createScriptScreen";
-static const auraScriptCreator="/auraScriptCreator";
+static const concentraoScriptCreator="/concentraoScriptCreator";
 static const aicreatemusicplayer="/aicreatemusicplayer";
 
 
