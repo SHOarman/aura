@@ -34,7 +34,7 @@ class Singup extends StatelessWidget {
                   const SizedBox(width: 60),
                   Center(
                     child: Text(
-                      "sign_up_with_email".tr,
+                      "Sing in with email",
                       style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
