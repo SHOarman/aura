@@ -10,8 +10,7 @@ import '../library/widget/saving_screen.dart';
 
 class Createscriptscreen extends StatefulWidget {
   final bool isConcentraoMode;
-  final String? initialCategory; // Home থেকে আসা ক্যাটাগরি ধরার জন্য
-
+  final String? initialCategory;
   const Createscriptscreen({
     super.key,
     this.isConcentraoMode = false,
@@ -27,7 +26,6 @@ class _CreatescriptscreenState extends State<Createscriptscreen> {
   final PageController _pageController = PageController();
   final RxInt _currentStep = 0.obs;
 
-  // late ব্যবহার করা হয়েছে কারণ এটি initState এ ইনিশিয়ালাইজ হবে
   late RxString selectedCategory;
   final RxString selectedDuration = "".obs;
   final TextEditingController audioTitleController = TextEditingController();
@@ -44,7 +42,6 @@ class _CreatescriptscreenState extends State<Createscriptscreen> {
 
   @override
   void initState() {
-    // স্ক্রিন লোড হওয়ার সময় ক্যাটাগরি সেট করা
     selectedCategory = (widget.initialCategory ?? "select_your_category").obs;
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -58,7 +55,6 @@ class _CreatescriptscreenState extends State<Createscriptscreen> {
     audioTitle.value = "";
     selectedDuration.value = "";
 
-    // রিসেট করলেও যেন initialCategory টা বজায় থাকে
     selectedCategory.value = widget.initialCategory ?? "select_your_category";
     _currentStep.value = 0;
 
@@ -128,7 +124,7 @@ class _CreatescriptscreenState extends State<Createscriptscreen> {
           category: selectedCategory.value.tr,
           duration: selectedDuration.value,
           imagePath: "assets/images/Frame 1171275468.png",
-          subTitle: 'prepare_mind_before_moments'.tr,
+          subTitle: '',
         ),
         transition: Transition.fadeIn,
         duration: const Duration(milliseconds: 1000),
@@ -319,6 +315,36 @@ class _CreatescriptscreenState extends State<Createscriptscreen> {
     );
   }
 
+  void _updateStyleCategory(List<String> categoryStyles, String selectedStyle) {
+    String currentText = widget.isConcentraoMode
+        ? aiController.concentraoStyleText.value
+        : aiController.ownStyleText.value;
+
+    List<String> currentStyles = currentText
+        .split(',')
+        .map((s) => s.trim())
+        .where((s) => s.isNotEmpty)
+        .toList();
+
+    bool wasSelected = currentStyles.contains(selectedStyle);
+
+    currentStyles.removeWhere((style) => categoryStyles.contains(style));
+
+    if (!wasSelected) {
+      currentStyles.add(selectedStyle);
+    }
+
+    String newText = currentStyles.join(', ');
+
+    if (widget.isConcentraoMode) {
+      aiController.concentraoStyleText.value = newText;
+      aiController.concentraoStyleInputController.text = newText;
+    } else {
+      aiController.ownStyleText.value = newText;
+      aiController.ownStyleInputController.text = newText;
+    }
+  }
+
   Widget _buildStyleGroup(List<String> styles) {
     return Obx(() {
       String current = widget.isConcentraoMode ? aiController.concentraoStyleText.value : aiController.ownStyleText.value;
@@ -330,7 +356,7 @@ class _CreatescriptscreenState extends State<Createscriptscreen> {
           return _buildCustomChip(
             label: isSelected ? s : "+ $s",
             isSelected: isSelected,
-            onTap: () => aiController.addStyleChip(s, widget.isConcentraoMode),
+            onTap: () => _updateStyleCategory(styles, s),
           );
         }).toList(),
       );

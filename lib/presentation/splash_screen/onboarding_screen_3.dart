@@ -10,14 +10,12 @@ class OnboardingScreen3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Globelcontroller খুঁজে বের করা
     final Globelcontroller controller = Get.find<Globelcontroller>();
 
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
-        // নিচ থেকে প্যাডিং একটু বেশি রাখা হয়েছে যাতে বাটন কার্ডগুলোকে ঢেকে না ফেলে
-        padding: const EdgeInsets.fromLTRB(20, 110, 20, 160),
+        padding: const EdgeInsets.fromLTRB(20, 90, 20, 160),
         child: Column(
           children: [
             const Center(
@@ -30,9 +28,8 @@ class OnboardingScreen3 extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 10),
 
-            // কার্ড লিস্ট
             _buildSelectableCard(controller, 0, "athletic_performance".tr, "perform_clarity_composure".tr),
             _buildSelectableCard(controller, 1, "business_leadership".tr, "execute_confidence_pressure".tr),
             _buildSelectableCard(controller, 2, "competitive_exams".tr, "maintain_focus_matters_most".tr),
@@ -44,14 +41,12 @@ class OnboardingScreen3 extends StatelessWidget {
     );
   }
 
-  // কার্ড বিল্ডার ফাংশন
   Widget _buildSelectableCard(Globelcontroller controller, int index, String title, String subtitle) {
     return Obx(() => Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: OnboardingCard(
         title: title,
         subtitle: subtitle,
-        // এখানে .value দিতে ভুলবেন না
         isSelected: controller.onboardingSelectedCard.value == index,
         onTap: () {
           // ভাইব্রেশন ফিডব্যাক

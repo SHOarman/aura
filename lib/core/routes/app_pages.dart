@@ -17,7 +17,6 @@ import 'package:concentrao/presentation/screen_ui/home/pressure_control_details_
 import 'package:concentrao/presentation/screen_ui/library/confidence_reinforcement.dart';
 import 'package:concentrao/presentation/screen_ui/library/peakstateactivarion.dart';
 import 'package:concentrao/presentation/screen_ui/library/pre_performance_rutine.dart';
-import 'package:concentrao/presentation/screen_ui/library/see_all.dart';
 import 'package:concentrao/presentation/screen_ui/library/pressurcontroller.dart';
 import 'package:concentrao/presentation/screen_ui/motivation/motivation.dart';
 import 'package:concentrao/presentation/screen_ui/music_player_screen/music_player_screen.dart';

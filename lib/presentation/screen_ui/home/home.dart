@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:concentrao/core/routes/app_routes.dart';
 import 'package:concentrao/presentation/splash_screen/widgets/preparation_card.dart';
@@ -12,7 +13,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomBottomNav(selectIndex: 0),
+      bottomNavigationBar: const CustomBottomNav(selectIndex: 0),
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Padding(
@@ -25,22 +26,32 @@ class Home extends StatelessWidget {
 
               // Top Bar: Logo & Notification
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset("assets/images/image 34.png"),
+
+                  SvgPicture.asset(
+                    "assets/images/new.svg",
+                     height: 80,
+                    width: 80,
+                    fit: BoxFit.contain,
+                    alignment: Alignment.centerLeft,
+                  ),
+
                   GestureDetector(
                     onTap: () {
                       debugPrint("Notification Tapped");
                     },
                     child: Container(
+                      padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(99),
+                        shape: BoxShape.circle,
                         color: const Color(0xff251D29),
                       ),
                       child: Image.asset(
                         "assets/images/mingcute_notification-fill.png",
-                        width: 40,
-                        height: 40,
+                        width: 24,
+                        height: 24,
                       ),
                     ),
                   ),
@@ -80,7 +91,6 @@ class Home extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-
 
               Quickmentalsessionscard(
                 ontap: () {

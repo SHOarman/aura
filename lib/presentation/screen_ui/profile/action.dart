@@ -135,7 +135,14 @@ class Action extends StatelessWidget {
                 text: "Logout".tr,
                 iconPath: "assets/icon/majesticons_logout.svg",
                 onTap: () {
-                  Get.toNamed(AppRoutes.login);
+                  _showConfirmationDialog(
+                    title: "Logout".tr,
+                    content: "Are you sure you want to logout?".tr,
+                    isDelete: false,
+                    onConfirm: () {
+                      Get.offAllNamed(AppRoutes.login);
+                    },
+                  );
                 },
                 isDelete: false,
               ),
@@ -144,7 +151,17 @@ class Action extends StatelessWidget {
 
               _buildSecondaryButton(
                 text: "Delete Account".tr,
-                onTap: () => debugPrint("Delete Account Clicked"),
+                onTap: () {
+                  _showConfirmationDialog(
+                    title: "Delete Account".tr,
+                    content: "Are you sure you want to delete your account?".tr,
+                    isDelete: true,
+                    onConfirm: () {
+                      debugPrint("Delete Account Confirmed");
+                      // Add actual delete logic here
+                    },
+                  );
+                },
                 isDelete: true,
               ),
 
@@ -334,6 +351,53 @@ class Action extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  void _showConfirmationDialog({
+    required String title,
+    required String content,
+    required VoidCallback onConfirm,
+    required bool isDelete,
+  }) {
+    Get.dialog(
+      AlertDialog(
+        backgroundColor: const Color(0xFF1B1424),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+          side: const BorderSide(color: Colors.white12),
+        ),
+        title: Text(
+          title,
+          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        content: Text(
+          content,
+          style: const TextStyle(color: Colors.white70),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Get.back(),
+            child: Text(
+              "Cancel".tr,
+              style: const TextStyle(color: Colors.white70),
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              Get.back();
+              onConfirm();
+            },
+            child: Text(
+              isDelete ? "Delete".tr : "Logout".tr,
+              style: TextStyle(
+                color: isDelete ? Colors.redAccent : const Color(0xFFD75BE3),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

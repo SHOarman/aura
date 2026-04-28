@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '../screenwidgets/bottomnav_button.dart';
 import 'libararyhistoriqe.dart';
@@ -21,8 +22,8 @@ class _LibraryState extends State<Library> {
         : "Concentrao Methods".tr;
 
     String headerImage = selectedIndex == 0
-        ? "assets/images/image 34.png"
-        : "assets/images/image 34.png";
+        ? "assets/images/new.svg"
+        : "assets/images/new.svg";
 
     return Scaffold(
       bottomNavigationBar: CustomBottomNav(selectIndex: 1),
@@ -37,14 +38,14 @@ class _LibraryState extends State<Library> {
 
               Row(
                 children: [
-                  Image.asset(
+                 SvgPicture.asset(
                     headerImage,
-                    height: 30,
-                    width: 30,
+                    height: 80,
+                    width: 80,
                     errorBuilder: (context, error, stackTrace) =>
                     const Icon(Icons.image, color: Colors.white),
                   ),
-                  const SizedBox(width: 15),
+                  // const SizedBox(width: 15),
                   Text(
                     headerTitle,
                     style: const TextStyle(

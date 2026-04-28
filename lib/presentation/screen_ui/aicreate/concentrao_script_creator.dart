@@ -116,8 +116,8 @@ class _ConcentraoScriptCreatorState extends State<ConcentraoScriptCreator> {
           title: audioTitle.value.trim(),
           category: selectedCategory.value,
           duration: selectedDuration.value,
-          imagePath: "assets/images/Frame 1171275468.png",
-          subTitle: 'prepare_mind_before_moments'.tr,
+          imagePath: "assets/images/Frame 1171275468.png", subTitle: '',
+          // subTitle: 'prepare_mind_before_moments'.tr,
         ),
       );
     });
@@ -363,6 +363,36 @@ class _ConcentraoScriptCreatorState extends State<ConcentraoScriptCreator> {
     );
   }
 
+  void _updateStyleCategory(List<String> categoryStyles, String selectedStyle) {
+    String currentText = widget.isConcentraoMode
+        ? aiController.concentraoStyleText.value
+        : aiController.ownStyleText.value;
+
+    List<String> currentStyles = currentText
+        .split(',')
+        .map((s) => s.trim())
+        .where((s) => s.isNotEmpty)
+        .toList();
+
+    bool wasSelected = currentStyles.contains(selectedStyle);
+
+    currentStyles.removeWhere((style) => categoryStyles.contains(style));
+
+    if (!wasSelected) {
+      currentStyles.add(selectedStyle);
+    }
+
+    String newText = currentStyles.join(', ');
+
+    if (widget.isConcentraoMode) {
+      aiController.concentraoStyleText.value = newText;
+      aiController.concentraoStyleInputController.text = newText;
+    } else {
+      aiController.ownStyleText.value = newText;
+      aiController.ownStyleInputController.text = newText;
+    }
+  }
+
   Widget _buildStyleGroup(List<String> styles) {
     return Obx(() {
       String current = widget.isConcentraoMode
@@ -376,8 +406,7 @@ class _ConcentraoScriptCreatorState extends State<ConcentraoScriptCreator> {
               (s) => _buildCustomChip(
             label: current.contains(s) ? s : "+ $s",
             isSelected: current.contains(s),
-            onTap: () =>
-                aiController.addStyleChip(s, widget.isConcentraoMode),
+            onTap: () => _updateStyleCategory(styles, s),
           ),
         )
             .toList(),
