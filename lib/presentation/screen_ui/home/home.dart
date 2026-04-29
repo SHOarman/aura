@@ -1,3 +1,4 @@
+import 'package:concentrao/presentation/screen_ui/library/widget/saving_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -26,13 +27,12 @@ class Home extends StatelessWidget {
 
               // Top Bar: Logo & Notification
               Row(
-                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-
                   SvgPicture.asset(
                     "assets/images/new.svg",
-                     height: 80,
+                    height: 80,
                     width: 80,
                     fit: BoxFit.contain,
                     alignment: Alignment.centerLeft,
@@ -94,10 +94,15 @@ class Home extends StatelessWidget {
 
               Quickmentalsessionscard(
                 ontap: () {
-                  Get.to(() => const Createscriptscreen(
-                    isConcentraoMode: false,
-                    initialCategory: "Pre-Performance Focus",
-                  ));
+                  Get.to(
+                    () => SavingScreen(
+                      title: "",
+                      subTitle: "This is best way ",
+                      category: 'pre_performance_focus'.tr,
+                      duration: "5 Min",
+                      imagePath: "assets/images/voice.png",
+                    ),
+                  );
                 },
                 name: 'pre_performance_focus'.tr,
               ),
@@ -106,10 +111,15 @@ class Home extends StatelessWidget {
 
               Quickmentalsessionscard(
                 ontap: () {
-                  Get.to(() => const Createscriptscreen(
-                    isConcentraoMode: false,
-                    initialCategory: "Confidence Reinforcement",
-                  ));
+                  Get.to(
+                    () => SavingScreen(
+                      title: "",
+                      subTitle: "good app",
+                      category: 'confidence_reinforcement'.tr,
+                      duration: "10 Min",
+                      imagePath: "assets/images/Rectangle 5.png",
+                    ),
+                  );
                 },
                 name: 'confidence_reinforcement'.tr,
               ),
@@ -118,10 +128,15 @@ class Home extends StatelessWidget {
 
               Quickmentalsessionscard(
                 ontap: () {
-                  Get.to(() => const Createscriptscreen(
-                    isConcentraoMode: false,
-                    initialCategory: "Pressure Control",
-                  ));
+                  Get.to(
+                    () => SavingScreen(
+                      title: "",
+                      subTitle: "know okh",
+                      category: 'pressure_control'.tr,
+                      duration: "5 Min",
+                      imagePath: "assets/images/Rectangle 7.png",
+                    ),
+                  );
                 },
                 name: 'pressure_control'.tr,
               ),
@@ -130,10 +145,15 @@ class Home extends StatelessWidget {
 
               Quickmentalsessionscard(
                 ontap: () {
-                  Get.to(() => const Createscriptscreen(
-                    isConcentraoMode: false,
-                    initialCategory: "Peak State Activation",
-                  ));
+                  Get.to(
+                    () => SavingScreen(
+                      title: "",
+                      subTitle: "Done",
+                      category: 'peak_state_activation'.tr,
+                      duration: "10 Min",
+                      imagePath: "assets/images/Rectangle 9.png",
+                    ),
+                  );
                 },
                 name: 'peak_state_activation'.tr,
               ),
